@@ -1,0 +1,67 @@
+image: "ubuntu:20.04"
+
+services:
+  - selenium/standalone-firefox
+
+before_script:
+  - apt-get update
+  - DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata curl
+  - apt-get install -y -qq python3 python3-pip
+      python3-pytest
+      postgresql
+  - pip3 install pandas chardet
+  - curl https://cli-assets.heroku.com/install.sh | sh
+
+stages:
+  - testing
+  - stage2
+  - stage3
+  - stage4
+
+test1:
+  stage: testing
+  script:
+    - pwd
+    - ls
+    - echo "hello"
+
+run_tests:
+  stage: testing
+  script:
+    - ./convert_to_utf8.py
+    - pytest-3 -v | tee pytest_output.log
+
+test_heroku:
+  stage: testing
+  script:
+    - echo "no login required b/c we have the api key..."
+    - heroku apps
+
+built_db:
+  stage: stage2
+  script:
+    - ./convert_to_utf8.py
+    - ./clean_input.py
+    - heroku psql -a closer-temp < db_temp.sql
+    - heroku psql -a closer-temp < db_insert.sql
+    - heroku psql -a closer-temp < db_drop.sql
+  artifacts:
+    paths:
+      - archivist_tables_clean
+    expire_in: 1 week
+
+click_button:
+  stage: stage3
+  script:
+    - pip3 install selenium
+    - ./click_archivist_export_button.py $SECRET1 $SECRET2
+
+export_xml:
+  stage: stage4
+  script:
+    - pip3 install selenium
+    - ./get_archivist_xml.py $SECRET1 $SECRET2
+  artifacts:
+    paths:
+      - export_xml/*.xml
+    expire_in: 1 week

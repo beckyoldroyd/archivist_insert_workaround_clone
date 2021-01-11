@@ -1,0 +1,2 @@
+Label;Loop_While;Start_value;End_Value;Variable;Parent_Type;Parent_Name;Branch;Position
+l_qSmoker;;1;10;_eligiblepersons;CcSequence;SubSection1;;1

@@ -1,0 +1,6 @@
+Label;Type;Type2;Format;Min;Max
+Generic text;Text;;;;255
+Generic date;Date;Date;;;
+Long text;Text;;;;
+Age;Numeric;Integer;;0;
+Date of birth;Date;Date;;;

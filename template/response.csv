@@ -1,0 +1,7 @@
+Label;Type;Type2;Format;Min;Max
+Generic text;Text;;;;255
+How many I;Numeric;Integer;;0;
+Generic time;Date;Time;;;
+How many F;Numeric;Float;;0;
+Months Years;Date;Duration;PnnYnnM;;
+Generic date;Date;Date;;;

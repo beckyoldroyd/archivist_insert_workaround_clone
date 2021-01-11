@@ -1,0 +1,4 @@
+Label;Literal;Instructions;Response;Parent_Type;Parent_Name;Branch;Position;min_responses;max_responses
+qi_Smoker;Have you ever been a smoker?;Please tick one box;cs_Yes_No;CcLoop;l_qSmoker;;1;1;1
+qi_Number;How many cigarettes a day?;;How many I;CcCondition;c_qSmoker;0;1;;
+qi_Duration;How long have you been smoking?;;Months Years;CcCondition;c_qSmoker;0;2;;

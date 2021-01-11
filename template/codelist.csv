@@ -1,0 +1,11 @@
+Label;Code_Order;Code_Value;Category
+cs_Yes_No;1;1;Yes
+cs_Yes_No;2;2;No
+cs_qQual_Y;1;1;O level (obtained before 1975)
+cs_qQual_Y;2;2;O level A-C (1975 or later)
+cs_qQual_Y;3;3;O level D,E (1975 or later)
+cs_qQual_Y;4;4;GCSE grades A-C
+cs_qQual_Y;5;5;GCSE grades D-G
+cs_qQual_Y;6;6;CSE grade 1
+cs_qQual_Y;7;7;CSE grade 2-5
+cs_dash;1;1;-

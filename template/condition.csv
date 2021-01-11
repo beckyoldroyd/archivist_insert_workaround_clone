@@ -1,0 +1,2 @@
+Label;Literal;Logic;Parent_Type;Parent_Name;Branch;Position
+c_qSmoker;If yes.;qc_Smoker == 1;CcLoop;l_qSmoker;;2

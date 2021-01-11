@@ -1,0 +1,5 @@
+Label;Parent_Type;Parent_Name;Branch;Position
+Example_1;CcSequence;;;1
+Section1;CcSequence;Example_1;;1
+SubSection1;CcSequence;Section1;;1
+Section2;CcSequence;Example_1;;2
