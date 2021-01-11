@@ -241,7 +241,7 @@ SELECT pg_sleep(2);
 -- 9. codes;
 \qecho '9. codes';
 INSERT INTO codes (value, "order", code_list_id, category_id, created_at, updated_at, instrument_id)
-(select to_char(a.Code_Value,  'FM999999999999999999') as value,
+(select a.Code_Value as value,
         a.Code_Order as "order",
         b.id as code_lists_id,
         c.id as category_id,
