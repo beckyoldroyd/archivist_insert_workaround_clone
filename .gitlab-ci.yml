@@ -14,6 +14,7 @@ before_script:
 
 stages:
   - testing
+  - stage1
   - stage2
   - stage3
   - stage4
@@ -36,6 +37,12 @@ test_heroku:
   script:
     - echo "no login required b/c we have the api key..."
     - heroku apps
+
+delete_db:
+  stage: stage1
+  script:
+    - pip3 install selenium
+    - ./click_archivist_delete_button.py $SECRET1 $SECRET2
 
 built_db:
   stage: stage2

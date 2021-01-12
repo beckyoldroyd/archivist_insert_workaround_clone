@@ -1,47 +1,5 @@
 Label;Parent_Type;Parent_Name;Branch;Position
-ns_covid_q2;CcSequence;;1;1
-Individual Group Intro;CcSequence;ns_covid_q2;1;1
-Physical Health;CcSequence;ns_covid_q2;1;2
-Health - Medication;CcSequence;ns_covid_q2;1;3
-Health - Healthcare;CcSequence;ns_covid_q2;1;4
-Health – Physical Health;CcSequence;ns_covid_q2;1;5
-Family – Household Grid;CcSequence;ns_covid_q2;1;6
-Family – Relationships;CcSequence;ns_covid_q2;1;7
-Other – Family conflict change;CcSequence;ns_covid_q2;1;8
-Family – Pregnancy;CcSequence;ns_covid_q2;1;9
-Family – Children and childcare_i;CcSequence;ns_covid_q2;1;10
-Family – Child loop;CcSequence;ns_covid_q2;1;11
-Family – Children and childcare_ii;CcSequence;ns_covid_q2;1;12
-Family – Caring;CcSequence;ns_covid_q2;1;13
-Family – Housing;CcSequence;ns_covid_q2;1;14
-Finance, employment and education – Financial Situation;CcSequence;ns_covid_q2;1;15
-Finance, employment and education – Benefits claimed;CcSequence;ns_covid_q2;1;16
-Finance, employment and education – Financial transfers;CcSequence;ns_covid_q2;1;17
-Finance, employment and education – Employment circumstances: prior outbreak;CcSequence;ns_covid_q2;1;18
-Finance, employment and education – Education: prior outbreak;CcSequence;ns_covid_q2;1;19
-Finance, employment and education – Economic activity: during outbreak - if in education or non-job apprenticeship;CcSequence;ns_covid_q2;1;20
-Finance, employment and education – Education and employment MCS only;CcSequence;ns_covid_q2;1;21
-Finance, employment and education – Employment circumstances: now;CcSequence;ns_covid_q2;1;22
-Finance, employment and education – Employment circumstances: during outbreak;CcSequence;ns_covid_q2;1;23
-Finance, employment and education – Employment circumstances: prior outbreak – partner 36;CcSequence;ns_covid_q2;1;24
-Finance, employment and education – Economic activity: since outbreak - partner;CcSequence;ns_covid_q2;1;25
-Health – Health behaviours;CcSequence;ns_covid_q2;1;26
-Other – Contact;CcSequence;ns_covid_q2;1;27
-COVID, Social, and Mental health – Social provision;CcSequence;ns_covid_q2;1;28
-COVID, Social, and Mental health – Loneliness;CcSequence;ns_covid_q2;1;29
-COVID, Social, and Mental health – Life satisfaction;CcSequence;ns_covid_q2;1;30
-COVID, Social, and Mental health – Mental health scale_i;CcSequence;ns_covid_q2;1;31
-COVID, Social, and Mental health – MCS Mental health scale;CcSequence;ns_covid_q2;1;32
-COVID, Social, and Mental health – NCDS & BCS70 Mental health scale;CcSequence;ns_covid_q2;1;33
-COVID, Social, and Mental health – NS & NSHD Mental health scale;CcSequence;ns_covid_q2;1;34
-COVID, Social, and Mental health – Mental health scale_ii;CcSequence;ns_covid_q2;1;35
-COVID, Social, and Mental health – Optimism;CcSequence;ns_covid_q2;1;36
-COVID, Social, and Mental health – Risk and patience;CcSequence;ns_covid_q2;1;37
-Other - Trust;CcSequence;ns_covid_q2;1;38
-Other – Trust in government;CcSequence;ns_covid_q2;1;39
-Other – Time use;CcSequence;ns_covid_q2;1;40
-Other – Life events;CcSequence;ns_covid_q2;1;41
-Family – Children and childcare;CcSequence;ns_covid_q2;1;42
-Outro – Outro block_i;CcSequence;ns_covid_q2;1;43
-MCS Contact information – Contact information block;CcSequence;ns_covid_q2;1;44
-Outro – Outro block_ii;CcSequence;ns_covid_q2;1;45
+Example_1;CcSequence;;;1
+Section1;CcSequence;Example_1;;1
+SubSection1;CcSequence;Section1;;1
+Section2;CcSequence;Example_1;;2
