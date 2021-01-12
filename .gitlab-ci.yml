@@ -49,9 +49,9 @@ built_db:
   script:
     - ./convert_to_utf8.py
     - ./clean_input.py
-    - heroku psql -a closer-archivist-jenny < db_temp.sql
-    - heroku psql -a closer-archivist-jenny < db_insert.sql
-    - heroku psql -a closer-archivist-jenny < db_drop.sql
+    - heroku psql -a closer-temp < db_temp.sql
+    - heroku psql -a closer-temp < db_insert.sql
+    - heroku psql -a closer-temp < db_drop.sql
   artifacts:
     paths:
       - archivist_tables_clean
