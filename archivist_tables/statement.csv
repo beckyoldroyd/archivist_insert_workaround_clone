@@ -1,2 +1,17 @@
 Label;Literal;Parent_Type;Parent_Name;Branch;Position
-s_qQual;First I'd like to ask you a few things about your qualification.;CcSequence;Section2;;1
+s_qSHGInt;Interviewer First Id like to ask you a few things about your accommodation and who lives here with you.;CcSequence;Household section household members;0;4
+s_qQualb;Read out;CcSequence;Household section establishing main parent respondent;0;7
+s_qQualb_1;Im going to ask you a few questions now about any qualifications you might have. What I mean by a qualification is if you followed a course at a school or college or did training and were given any sort of certificate at the end of this.;CcSequence;Household section establishing main parent respondent;0;8
+s_qQualb_2;This includes not just school or college examinations but things you might have got through your job. Im going to show you some lists of different qualifications and Id like you to tell me which of these, if any, you have.;CcSequence;Household section establishing main parent respondent;0;9
+s_qQualb_3;I would like to start by asking you about any British qualifications you might have. I shall ask you about overseas qualifications later.;CcSequence;Household section establishing main parent respondent;0;10
+s_qWrk1a;NOTE: THIS SECTION IS NOT ASKED WHERE SAMPLED YOUNG PERSON IS LIVING IN INSTITUTION AWAY FROM FAMILY (Not Incar = 3);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;2
+s_qJHChkY;NOTE: THIS SECTION IS NOT ASKED WHERE SAMPLE MEMBER LIVING IN INSTITUTION (If not Incar = 3);CcSequence;INDIVIDUAL PARENT QUESTIONS EMPLOYMENT/ACTIVITY HISTORY;0;2
+s_qJHAct;TO BE ASKED OF EVERY JOB OR PERIOD OF ACTIVITY SINCE THE YOUNG PERSONS BIRTH OR THE PARENTS ARRIVAL IN THE SAME HOUSEHOLD;CcSequence;INDIVIDUAL PARENT QUESTIONS EMPLOYMENT/ACTIVITY HISTORY;0;7
+s_qHea1;NOTE: THIS SECTION IS NOT ASKED IF SAMPLE MEMBER LIVING IN INSTITUTION;CcSequence;INDIVIDUAL PARENT QUESTIONS HEALTH AND DEMOGRAPHICS;0;2
+s_qFammeal;NOTE: THIS SECTION IS NOT ASKED WHERE SAMPLE MEMBER LIVING IN INSTITUTION;CcSequence;MAIN PARENT RESPONDENT SECTION FAMILY ACTIVITIES;0;2
+s_qChStYr;{If living in private household with NO natural parents};CcSequence;MAIN PARENT SELF-COMPLETION SECTION REASONS FOR NOT LIVING WITH NATURAL PARENTS;0;2
+s_qIntcare;NOTE: THIS SECTION IS NOT ASKED OF YOUNG PEOPLE LIVING IN INSTITUTIONS;CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;2
+s_qMPFnam;At this stage of the main parent respondent interview, the individual parent questions (which are administered to any parent/guardian resident in the household) are asked. See separate documentation.;CcSequence;MAIN PARENT RESPONDENT INDIVIDUAL PARENT QUESTIONS;0;2
+s_qMPFnam_1;At this stage of the main parent respondent interview, the history questions will now appear for all respondents who are both the main parent and history respondent. The history respondent is the natural mother, if there is no natural mother then the natural father will answer the section. In absence of natural parents then whoever has been identified as the main parent will answer this section. See separate documentation for further details.;CcSequence;MAIN PARENT RESPONDENT YOUNG PERSON HISTORY QUESTIONS;0;2
+s_qHWHave;The next few questions are about any homework you might be asked to do by teachers at your school. By Homework I mean any work set for you by teachers which is to be done outside lessons even if you do the work at school after lessons rather than actually taking it home with you.;CcSequence;YOUNG PERSON RESPONDENT HOMEWORK;0;2
+s_qChPre;That is now the end of the interview.;CcSequence;YOUNG PERSON RESPONDENT USE OF LEISURE TIME;0;16

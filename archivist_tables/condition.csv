@@ -1,2 +1,258 @@
 Label;Literal;Logic;Parent_Type;Parent_Name;Branch;Position
-c_qSmoker;If yes.;qc_Smoker == 1;CcLoop;l_qSmoker;;2
+c_qInCar_i;{Ask if InCar=3);qc_InCar == 3;CcSequence;Household section household members;0;3
+c_qAgeIf;{Record for each household member);;CcSequence;Household section household members;0;6
+c_qMarStat;{Record for each household member aged 16+);;CcLoop;l_Household;0;3
+c_qmember;{Ask if household member 16+ AND not married/living with partner and more than one household member >16);qc_member 16+ && not married/living with partner && more than one household qc_member >16;CcLoop;l_Household;0;4
+c_qEthGrp_i;{Record for each household member aged 16+);;CcLoop;l_Household;0;5
+c_qEthGrp_ii;{Ask if EthGrp = 3, 7, 11, 14 or 16);qc_EthGrp == 3 || qc_EthGrp == 7 || qc_EthGrp == 11 || qc_EthGrp == 14 || qc_EthGrp == 16;CcLoop;l_Household;0;7
+c_qempstat;{Ask for any full/half/step siblings of sample young person aged who are 16+ AND not in full time education, empstat=5);qc_empstat == 5;CcLoop;l_R;0;2
+c_qHous12;{Ask all not in institutions/hotels };;CcSequence;Household section household members;0;14
+c_qage;{ If more than one person in household with age >= 16};qc_age > ==  16;CcSequence;Household section household members;0;15
+c_qHRefPerB;{If accommodation jointly owned/rented or dk/ref};;CcSequence;Household section household members;0;16
+c_qUseVc;{If joint highest income or dk/ref};;CcSequence;Household section household members;0;17
+c_qUseVC;{If has vehicles (UseVC=Yes) };(qc_UseVC == Yes);CcSequence;Household section household members;0;19
+c_qEnglang_i;{Ask if speaks other language apart from English (Englang=2,3 or 4)};qc_Englang == 2 || qc_Englang == 3 || qc_Englang == 4;CcSequence;Household section languages (ask of household respondent);0;3
+c_qIncar;{Ask all unless Incar = 3 or sampled young person has only one parent at the relationship grid };qc_Incar == 3;CcSequence;Household section establishing main parent respondent;0;2
+c_qInCar_ii;{If InCar = 3 or if main parent/guardian respondent is NOT a household member};qc_InCar == 3;CcSequence;Household section establishing main parent respondent;0;3
+c_qQuala;{If Quala = 1};qc_Quala  ==  1;CcSequence;Household section establishing main parent respondent;0;11
+c_qQualc;{If Qualc = 1};qc_Qualc  ==  1;CcSequence;Household section establishing main parent respondent;0;13
+c_qQuale;{If Quale = 1};qc_Quale  ==  1;CcSequence;Household section establishing main parent respondent;0;15
+c_qQualg;{If Qualg = 1};qc_Qualg  ==  1;CcSequence;Household section establishing main parent respondent;0;16
+c_qOvers_i;{ If Overs = Yes );qc_Overs  ==  Yes ;CcSequence;Household section establishing main parent respondent;0;19
+c_qOvers_ii;{If Overs = Yes);qc_Overs  ==  Yes;CcSequence;Household section establishing main parent respondent;0;21
+c_qOvers_iii;{If Overs = Yes);qc_Overs  ==  Yes;CcSequence;Household section establishing main parent respondent;0;22
+c_qWrkY;8. Temporarily sick/disabled (If temporarily off sick from job code as employed);(If temporarily off sick from job code as employed);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;4
+c_qwrky;{If wrky <> DK, Ref};qc_wrky  !=  DK, Ref;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;6
+c_qWrk1a_i;{If not currently working (Wrk1a=5-12)};(qc_Wrk1a == 5-12);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;7
+c_qWrk2_i;{If not currently working but has in past (Wrk2=Yes};qc_Wrk2 == Yes;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;8
+c_qWrk2_ii;{If not currently working but has in past (Wrk2=Yes};qc_Wrk2 == Yes;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;9
+c_qWrk1a_ii;{If currently working or if has in past (Wrk1a=1-4 or Wrk2=Yes};qc_Wrk1a == 1 || qc_Wrk1a == 1 || qc_Wrk1a == 4 || qc_Wrk1a == 2;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;10
+c_qWrk1a_iii;{If currently working or if has in past (Wrk1a=1-4 or Wrk2=Yes};qc_Wrk1a == 1 || qc_Wrk1a == 1 || qc_Wrk1a == 4 || qc_Wrk1a == 2;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;11
+c_qWrk1a_iv;{If currently working or if has in past (Wrk1a=1-4 or Wrk2=Yes};qc_Wrk1a == 1 || qc_Wrk1a == 1 || qc_Wrk1a == 4 || qc_Wrk1a == 2;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;12
+c_qWrk1a_v;{If currently working or if has in past (Wrk1a=1-4 or Wrk2=Yes};qc_Wrk1a == 1 || qc_Wrk1a == 1 || qc_Wrk1a == 4 || qc_Wrk1a == 2;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;13
+c_qWrkStat_i;{If employee (WrkStat=Employee)};(qc_WrkStat == Employee);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;14
+c_qWrkStat_ii;{If employee (WrkStat=Employee)};(qc_WrkStat == Employee);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;15
+c_qWrkStat_iii;{If employee (WrkStat=Employee)};(qc_WrkStat == Employee);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;16
+c_qFixhr;{If Fixhr = 1};qc_Fixhr  ==  1;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;17
+c_qWrkStat_iv;{If employee (WrkStat=Employee and Fixhr = 2)};qc_WrkStat == 2;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;18
+c_qSalar1;{If Salar1 <> DK, Ref)};qc_Salar1  !=  DK, Ref;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;19
+c_qWrkStat_v;{If employee (WrkStat=Employee and Fixhr = 2)};qc_WrkStat == 2;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;20
+c_qSalar3;{If Salar3 <> DK, Ref)};qc_Salar3  !=  DK, Ref;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;21
+c_qWrkStat_vi;{If employee (WrkStat=Employee)};(qc_WrkStat == Employee);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;22
+c_qWrkStat_vii;{If employee (WrkStat=Employee)};(qc_WrkStat == Employee);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;24
+c_qnot;Add logic check Paidovr must not = more than HrsOver{If self-employed (WrkStat=Self-employed)};(qc_WrkStat == Self-employed);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;26
+c_qWrkStat_viii;{If has employees (WrkStat=with employees)};(qc_WrkStat == with employees);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;27
+c_qWrkStat_ix;{If wrk1a is NOT 1-4a and if WrkStat=Self-employed) };qc_WrkStat == Self-employed;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;28
+c_qJHInt;{If parent/guardians current activity started after the birth of the young person. WrkY/WrkM is after Date of Birth from sample};;CcSequence;INDIVIDUAL PARENT QUESTIONS EMPLOYMENT/ACTIVITY HISTORY;0;5
+c_qJHAct_i;{Ask for all activities since young persons birth/parents arrival in same household};;CcLoop;l_JHAct;0;1
+c_qJHStY;{Ask for all activities since young persons birth/parents arrival in same household};;CcLoop;l_JHAct;0;2
+c_qJHStM;{Ask for all activities since young persons birth/parents arrival in same household};;CcLoop;l_JHAct;0;3
+c_qJHAct_ii;{If activity was employment (JHAct=codes 1-4)};(qc_JHAct == codes 1-4);CcLoop;l_JHAct;0;4
+c_qJHAct_iii;{If activity was employment (JHAct=codes 1-4)};(qc_JHAct == codes 1-4);CcLoop;l_JHAct;0;5
+c_qHea2;{IF has long-standing illness, disability or infirmity (Hea2=Yes)};(qc_Hea2 == Yes);CcSequence;INDIVIDUAL PARENT QUESTIONS HEALTH AND DEMOGRAPHICS;0;5
+c_qPRelig1;{Ask if not household respondent information already given in household section};;CcSequence;INDIVIDUAL PARENT QUESTIONS HEALTH AND DEMOGRAPHICS;0;6
+c_qRelig1_i;{If Christian (Relig1=Christian)}};(qc_Relig1 == Christian);CcSequence;INDIVIDUAL PARENT QUESTIONS HEALTH AND DEMOGRAPHICS;0;9
+c_qRelig1_ii;{IF identifies with a religion (if Relig1 = 2-8)};(if qc_Relig1  ==  2-8);CcSequence;INDIVIDUAL PARENT QUESTIONS HEALTH AND DEMOGRAPHICS;0;10
+c_qRepred1;(If Repred1=1);(If qc_Repred1 == 1);CcSequence;MAIN PARENT RESPONDENT SECTION ATTITUDES TO YOUNG PERSONS SCHOOL & INVOLVEMENT IN EDUCATION;0;14
+c_qExtrutu1;{If takes private classes (Extrutu1=Yes)};(qc_Extrutu1 == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION EXTRA-CURRICULAR CLASSES;0;3
+c_qExtrtu1;{If takes private classes (Extrtu1=Yes)};(qc_Extrtu1 == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION EXTRA-CURRICULAR CLASSES;0;4
+c_qExtrat4_i;{If takes other classes (Extrat4=Yes)};(qc_Extrat4 == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION EXTRA-CURRICULAR CLASSES;0;6
+c_qExtrat4_ii;{If takes other classes (Extrat4=Yes)};(qc_Extrat4 == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION EXTRA-CURRICULAR CLASSES;0;7
+c_qSubjcho8;{Ask if Subjcho8 = Yes);qc_Subjcho8  ==  Yes;CcSequence;MAIN PARENT RESPONDENT SECTION YEAR 10 SUBJECT CHOICES;0;4
+c_qSEN_i;{If ever identified as having special educational needs (SEN=Yes)};(qc_SEN == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION SPECIAL EDUCATIONAL NEEDS;0;3
+c_qSEN_ii;{If ever identified as having special educational needs (SEN=Yes)};(qc_SEN == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION SPECIAL EDUCATIONAL NEEDS;0;4
+c_qSENcurr_i;{If currently thought to have special educational needs (SENcurr=Yes)};(qc_SENcurr == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION SPECIAL EDUCATIONAL NEEDS;0;5
+c_qSEN_iii;{If ever assessed as having special educational needs (SEN=Yes)};(qc_SEN == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION SPECIAL EDUCATIONAL NEEDS;0;6
+c_qSTATED;{If GOT statement of needs (STATED=Yes, GOT statement)};(qc_STATED == Yes, GOT statement);CcSequence;MAIN PARENT RESPONDENT SECTION SPECIAL EDUCATIONAL NEEDS;0;7
+c_qSENcurr_ii;{If currently thought to have special educational needs (SENcurr=Yes)};(qc_SENcurr == Yes);CcSequence;MAIN PARENT RESPONDENT SECTION SPECIAL EDUCATIONAL NEEDS;0;8
+c_qParasp1;{Ask all except where young people living in institutions};;CcSequence;MAIN PARENT RESPONDENT SECTION PARENTAL EXPECTATIONS & ASPIRATIONS;0;2
+c_qParasp2;{If would like young person to continue in full-time education but doesnt think they will (Parasp2=1) and (Parasp1 not =1) };qc_Parasp2 == 2 && qc_Parasp2 == 1 && qc_Parasp2 == 1 && qc_Parasp2 == 1;CcSequence;MAIN PARENT RESPONDENT SECTION PARENTAL EXPECTATIONS & ASPIRATIONS;0;4
+c_qFefin;{If parents will support/give money for FE (Fefin=3)};(qc_Fefin == 3);CcSequence;MAIN PARENT RESPONDENT SECTION PARENTAL EXPECTATIONS & ASPIRATIONS;0;6
+c_qHeposs_i;{If young person not very/not at all likely to go to university (Heposs=3 or 4)};qc_Heposs == 3 || qc_Heposs == 4;CcSequence;MAIN PARENT RESPONDENT SECTION PARENTAL EXPECTATIONS & ASPIRATIONS;0;8
+c_qHeposs_ii;{If young person very/fairly likely to go to university (Heposs=1 or 2)};qc_Heposs == 1 || qc_Heposs == 2;CcSequence;MAIN PARENT RESPONDENT SECTION PARENTAL EXPECTATIONS & ASPIRATIONS;0;9
+c_qHeposs_iii;{If young person very/fairly likely to go to university (Heposs=1 or 2)};qc_Heposs == 1 || qc_Heposs == 2;CcSequence;MAIN PARENT RESPONDENT SECTION PARENTAL EXPECTATIONS & ASPIRATIONS;0;10
+c_qparout;{Ask if always/usually/sometimes/rarely or hardly ever/ never know where child is in evening ( parout = 1,2,3,4,5};qc_parout  ==  1,2,3,4,5;CcSequence;MAIN PARENT RESPONDENT SECTION FAMILY ACTIVITIES;0;7
+c_qParback;{If always/most times/sometimes sets time to come back by on school nights (Parback=1,2 or 3)};qc_Parback == 1 || qc_Parback == 2 || qc_Parback == 3;CcSequence;MAIN PARENT RESPONDENT SECTION FAMILY ACTIVITIES;0;8
+c_qPatwk;{If always/most times/sometimes sets time to come back by on Friday/Saturday nights (Patwk=1,2 or 3)};qc_Patwk == 1 || qc_Patwk == 2 || qc_Patwk == 3;CcSequence;MAIN PARENT RESPONDENT SECTION FAMILY ACTIVITIES;0;10
+c_qScomAd;{Ask if Not interpreter, code 1 at Interp};;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;3
+c_qSCompAdi_i;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;4
+c_qSCompAdi_ii;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;5
+c_qSCompAdi_iii;{If accepts self-completion (SCompAdi=1 or 3) except where young person living in institution};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;6
+c_qSCompAdi_iv;{If accepts self-completion (SCompAdi=1 or 3) except where young person living in institution)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;7
+c_qSCompAdi_v;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;8
+c_qSCompAdi_vi;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;9
+c_qSCompAdi_vii;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;10
+c_qSCompAdi_viii;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;11
+c_qSCompAdi_ix;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;12
+c_qEverCar_i;{If ever been in care (EverCar=2, 3, 4, 5 or 6)};qc_EverCar == 2 || qc_EverCar == 3 || qc_EverCar == 4 || qc_EverCar == 5 || qc_EverCar == 6;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;13
+c_qEverCar_ii;{If ever been in care (EverCar=2, 3, 4, 5 or 6)};qc_EverCar == 2 || qc_EverCar == 3 || qc_EverCar == 4 || qc_EverCar == 5 || qc_EverCar == 6;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;14
+c_qEverCar_iii;{If ever been in care (EverCar=2, 3, 4, 5 or 6)};qc_EverCar == 2 || qc_EverCar == 3 || qc_EverCar == 4 || qc_EverCar == 5 || qc_EverCar == 6;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;15
+c_qNowCare_i;{If currently in care (NowCare=Yes)};(qc_NowCare == Yes);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;16
+c_qNowCare_ii;{If currently in care (NowCare=Yes AND Nowcary <> DK or ref)};(qc_NowCare == Yes && qc_Nowcary  !=  DK || ref);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RELATIONSHIP WITH YOUNG PERSON & CONTACT WITH SERVICES;0;17
+c_qChStM;{If living in private household with NO natural parents};;CcSequence;MAIN PARENT SELF-COMPLETION SECTION REASONS FOR NOT LIVING WITH NATURAL PARENTS;0;4
+c_qStopLvO;{If living in private household with NO natural parents};;CcSequence;MAIN PARENT SELF-COMPLETION SECTION REASONS FOR NOT LIVING WITH NATURAL PARENTS;0;5
+c_qSCompAdi_x;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;2
+c_qAbs3mE_i;{If ever had 3month + absence (Abs3mE=1)};(qc_Abs3mE == 1);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;3
+c_qAbs3mE_ii;{If ever had 3month + absence (Abs3mE=1)};(qc_Abs3mE == 1);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;4
+c_qAbs3mY;{If 3month + absence since 2002 (Abs3mY=2003 or 2004)};qc_Abs3mY == 3 || qc_Abs3mY == 2003 || qc_Abs3mY == 2004;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;5
+c_qAbs3me;{If no 3 month+ absence ever or in last 12 months (Abs3me=No or Abs3mY before 2003)};qc_Abs3me == 3 || qc_Abs3me == 3 || qc_Abs3me == 2003;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;6
+c_qAbs1mY;{If 1 month+ absence in last 12 months (Abs1mY=Yes)};(qc_Abs1mY == Yes);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;7
+c_qAbs1mW;{If Abs1mW=Some other reason};qc_Abs1mW == Some other reason;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;8
+c_qSCompAdi_xi;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;9
+c_qSuspend;{If ever temporarily suspended/excluded (Suspend=Yes)};(qc_Suspend == Yes);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;10
+c_qSutimes;{If temporarily suspended/excluded in last 3 years (Sutimes=Yes)};(qc_Sutimes == Yes);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;11
+c_qSCompAdi_xii;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;12
+c_qExpel;{If ever expelled/permanently excluded (Expel=Yes)};(qc_Expel == Yes);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;13
+c_qExp3yr_i;{If expelled/permanently excluded in last 3 years (Exp3yr=Yes)};(qc_Exp3yr == Yes);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;14
+c_qExp3yr_ii;{If expelled/permanently excluded in last 3 years (Exp3yr=Yes)};(qc_Exp3yr == Yes);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;15
+c_qSCompAdi_xiii;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;16
+c_qPBul1;{If sample member bullied ({PBul1=1-7})};(qc_PBul1 == 1-7);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;17
+c_qSCompAdi_xiv;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;18
+c_qPolice1;{If police got in touch (Police1=Yes)};(qc_Police1 == Yes);CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;19
+c_qSCompAdi_xv;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;MAIN PARENT SELF-COMPLETION SECTION RISK FACTORS (ABSENCES, TRUANCY, POLICE CONTACT, BULLYING);0;20
+c_qCareHH;{If cares for someone in household (CareHH=Yes) };(qc_CareHH == Yes);CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;5
+c_qCareNHH;{If cares for someone outside household (CareNHH=Yes)};(qc_CareNHH == Yes);CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;7
+c_qBen1;(If Ben1 <> 1);(If qc_Ben1  !=  1);CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;10
+c_qInc1Est_i;{If receives any benefits (at Ben1, Ben2 or Ben3)};(at Ben1, Ben2 || Ben3);CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;13
+c_qInc1Est_ii;{Ask if Inc1Est=32 700 a week or more};qc_Inc1Est == 1 || qc_Inc1Est == 32 || qc_Inc1Est == 700;CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;15
+c_qEnglang_ii;{Ask if speaks other language apart from English (Englang=2,3 or 4) and resident father/father-figure - both from HHgrid};qc_Englang == 2 || qc_Englang == 3 || qc_Englang == 4;CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;20
+c_qEnglang_iii;{Ask if speaks other language apart from English (Englang=2,3 or 4) and resident mother/mother-figure - both from HHgrid };qc_Englang == 2 || qc_Englang == 3 || qc_Englang == 4;CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;21
+c_qMPSnam;{Ask if did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;3
+c_qMPTitle;{Ask if did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;4
+c_qOPFnam;{Ask if has husband/wife/partner AND did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;5
+c_qOPSnam;{Ask if has husband/wife/partner AND did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;6
+c_qOPSTitle;{Ask if has husband/wife/partner AND did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;7
+c_qConDur4_i;{If has landline telephone (ConDur4 =1 or 3) };qc_ConDur4 == 4 || qc_ConDur4 == 1 || qc_ConDur4 == 3;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;8
+c_qConDur4_ii;{If has mobile telephone (ConDur4 =2 or 3) };qc_ConDur4 == 4 || qc_ConDur4 == 2 || qc_ConDur4 == 3;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;9
+c_qMPEmail_i;{Ask if did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;10
+c_qMPEmail_ii;{If MPEmail = 1};qc_MPEmail  ==  1;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;12
+c_qMPCont;{If MPCont = 1 };qc_MPCont  ==  1;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;14
+c_qMove1yr_i;{Ask if did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;19
+c_qMove1yr_ii;{If Move1yr = Yes};qc_Move1yr  ==  Yes;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;20
+c_qMovekn;{If Movekn = Yes};qc_Movekn  ==  Yes;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;21
+c_qEnglang_iv;{If English not only language (Englang=2,3,4)};(qc_Englang == 2,3,4);CcSequence;YOUNG PERSON RESPONDENT INTRODUCTION & DEMOGRAPHICS;0;9
+c_qEnglang_v;{If English not only language (Englang=2,3,4) };(qc_Englang == 2,3,4);CcSequence;YOUNG PERSON RESPONDENT INTRODUCTION & DEMOGRAPHICS;0;10
+c_qRelig1_iii;{If Christian (Relig1=Christian)}};(qc_Relig1 == Christian);CcSequence;YOUNG PERSON RESPONDENT INTRODUCTION & DEMOGRAPHICS;0;12
+c_qRelig1_iv;{IF identifies with a religion (if Relig1 = 2 to 8 )};(if qc_Relig1  ==  2 to 8 );CcSequence;YOUNG PERSON RESPONDENT INTRODUCTION & DEMOGRAPHICS;0;13
+c_qLike;{If Like <> nothing};qc_Like  !=  nothing;CcSequence;YOUNG PERSON RESPONDENT ATTITUDES TO CURRENT SCHOOL;0;3
+c_qDidL;{If DidLi <> nothing};qc_DidLi  !=  nothing;CcSequence;YOUNG PERSON RESPONDENT ATTITUDES TO CURRENT SCHOOL;0;5
+c_qY10Choi_i;{Ask all decided which subjects studying Y10Choi = 1 }l;qc_Y10Choi  ==  1 l;CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;3
+c_qChoice3;{Ask all except dont know at choic AND if more than one response coded at Choic};;CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;4
+c_qY10Choi_ii;(If Y10Choi = 1) How much didthe final decision on the subjects you will be doing depend on the grades you gotin your most recent exams?: (If Y10Choi <> 1) How much will the final decision on which subjects you will be doing depend on the grades you get in you exams?;(If qc_qc_Y10Choi  ==  1) How much didthe final decision on the subjects you will be doing depend on the grades you gotin your most recent exams?: (If qc_qc_Y10Choi  !=  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;6
+c_qY10Choi_iii;(If Y10Choi = 1) Thinking about when you decided your subjects for Year 10, how much do you agree or disagree with each of the reasons I am going to read out.;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;8
+c_qY10Choi_iv;(If Y10Choi <>1) I Thinking about when you decide your subjects for Year 10, how much do you agree or disagree with each of the reasons I am going to read out.;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;9
+c_qY10Choi_v;(If Y10Choi = 1) * I chose these subjects because I only wanted to do subjects that I know I would do well at in exams.;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;10
+c_qY10Choi_vi;(If Y10Choi <>1) I only want to do subjects that I know I will do well at in exams;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;11
+c_qY10Choi_vii;(If Y10Choi = 1) I chose these subjects becauseI only wanted to do subjects I'm interested in.;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;13
+c_qY10Choi_viii;(If Y10Choi <>1) I only want to do subjects Im interested in;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;14
+c_qY10Choi_ix;(If Y10Choi = 1) I chose these subjects becauseI like the teachers who teach these subjects in Year 10.:;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;16
+c_qY10Choi_x;(If Y10Choi <>1) I only want to do subjects in year 10 where I like the Year 10 teachers for these subjects;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;17
+c_qY10Choi_xi;(If Y10Choi = 1) I chose these subjects becauseI wanted to do the same subjects as my friends.;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;19
+c_qY10Choi_xii;(If Y10Choi <> 1) In Year 10 I want to do the same subjects as my friends;(If qc_Y10Choi  !=  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;20
+c_qY10Choi_xiii;(If Y10Choi = 1) I chose these subjects becauseI will need passes in them for the courses I want to do after Year 11:;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;22
+c_qY10Choi_xiv;(If Y10Choi <>1) The subjects I choose for Year 10 will be the ones I need passes for in courses after Year 11;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;23
+c_qY10Choi_xv;(If Y10Choi = 1) I chose these subjects because I will need passes in them for the job/career I want to have after I leave school:;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;25
+c_qY10Choi_xvi;(If Y10Choi <>1) The subjects I choose for Year 10 will be the ones I will need passes in for the job or career I want to have after I leave school;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;26
+c_qY10Choi_xvii;{If subjects have been settled (If Y10Choi= 1)} ASK FOR ALL IN DRESS REHEARSAL;(If qc_Y10Choi ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;27
+c_qY10Choi_xviii;How satisfied (If Y10Choi = 1) were (If Y10Choi <> 1) are you with the choice of courses and subjects for Year 10 available to you at this school - would you say you (If Y10Choi = 1) were... (If Y10Choi <> 1) are;qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 1 && qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 1 && qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 1 && qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 1;CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;28
+c_qHWDo_i;{If ever given any homework {HWDo=1,2,3 or 4)};qc_HWDo == 1 || qc_HWDo == 2 || qc_HWDo == 3 || qc_HWDo == 4;CcSequence;YOUNG PERSON RESPONDENT HOMEWORK;0;5
+c_qHWDo1;{If spend any time doing homework {HWDo1 = 1 )};qc_HWDo1  ==  1 ;CcSequence;YOUNG PERSON RESPONDENT HOMEWORK;0;6
+c_qHWDo_ii;{If ever given any homework {HWDo=1,2,3 or 4)};qc_HWDo == 1 || qc_HWDo == 2 || qc_HWDo == 3 || qc_HWDo == 4;CcSequence;YOUNG PERSON RESPONDENT HOMEWORK;0;7
+c_qHWDo_iii;{If ever given any homework {HWDo=1,2,3 or 4)};qc_HWDo == 1 || qc_HWDo == 2 || qc_HWDo == 3 || qc_HWDo == 4;CcSequence;YOUNG PERSON RESPONDENT HOMEWORK;0;8
+c_qHWDo_iv;{If ever given any homework {HWDo=1,2,3 or 4)};qc_HWDo == 1 || qc_HWDo == 2 || qc_HWDo == 3 || qc_HWDo == 4;CcSequence;YOUNG PERSON RESPONDENT HOMEWORK;0;9
+c_qComLoc_i;{If uses a computer at home (ComLoc=1)};(qc_ComLoc == 1);CcSequence;YOUNG PERSON RESPONDENT ICT;0;3
+c_qComLoc2_i;{If has used a computer at home for schoolwork {If ComLoc2=Yes}};qc_ComLoc2 == Yes;CcSequence;YOUNG PERSON RESPONDENT ICT;0;4
+c_qComLoc2_ii;{If has used a computer at home for schoolwork {If ComLoc2=Yes}};qc_ComLoc2 == Yes;CcSequence;YOUNG PERSON RESPONDENT ICT;0;5
+c_qComLoc2_iii;{If has used a computer at home for schoolwork {If ComLoc2=Yes}};qc_ComLoc2 == Yes;CcSequence;YOUNG PERSON RESPONDENT ICT;0;6
+c_qComLoc_ii;{If use a computer at home {If ComLoc = 1}};qc_ComLoc  ==  1;CcSequence;YOUNG PERSON RESPONDENT ICT;0;7
+c_qComLoc_iii;{If use a computer at school {If ComLoc = 2}};qc_ComLoc  ==  2;CcSequence;YOUNG PERSON RESPONDENT ICT;0;8
+c_qComLoc_iv;{ If use a computer at school {If ComLoc = 2}};qc_ComLoc  ==  2;CcSequence;YOUNG PERSON RESPONDENT ICT;0;9
+c_qMobPho1;Ask If MobPho1 = 1;qc_MobPho1  ==  1;CcSequence;YOUNG PERSON RESPONDENT ICT;0;13
+c_qSssport;{ If school does put on sports sessions outside lessons {If Sssport =yes}};qc_Sssport  == yes;CcSequence;YOUNG PERSON RESPONDENT STUDY SUPPORT;0;3
+c_qSsclub;{If extra clubs and societies other that sport {If Ssclub = 1}};qc_Ssclub  ==  1;CcSequence;YOUNG PERSON RESPONDENT STUDY SUPPORT;0;5
+c_qSSexam;{If school has extra exam preparation sessions {If SSexam = 1}};qc_SSexam  ==  1;CcSequence;YOUNG PERSON RESPONDENT STUDY SUPPORT;0;7
+c_qSSdrop;{If school offers extra sessions {If SSdrop=1}};qc_SSdrop == 1;CcSequence;YOUNG PERSON RESPONDENT STUDY SUPPORT;0;9
+c_qSShol;{If extra holiday sessions {If SShol = 1}};qc_SShol  ==  1;CcSequence;YOUNG PERSON RESPONDENT STUDY SUPPORT;0;11
+c_qAdvCon_i;{If heard of Connexions {If AdvCon = 1}};qc_AdvCon  ==  1;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;3
+c_qAdvper;{If Advper = Yes};qc_Advper  ==  Yes;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;4
+c_qAdvCon_ii;{If talked to a Connexions Service Personal Advisor about future studies {If AdvCon = 2..5}};qc_AdvCon  ==  2..5;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;9
+c_qAdvFrS;{If talk about plans for studying in lessons {If AdvFrS=2..5}};qc_AdvFrS == 2..5;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;10
+c_qAdvTeac;{If talk about plans for studying with teachers {If AdvTeac = 2..5}};qc_AdvTeac  ==  2..5;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;11
+c_qAdvFam;{If talk about plans for studying with family {If AdvFam = 2..5}};qc_AdvFam  ==  2..5;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;12
+c_qPlann16_i;{If wants to stay in full time education {If Plann16 =1};qc_Plann16  == 1;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;14
+c_qPlann16_ii;{If wants to leave full time education {If Plann16 = 2};qc_Plann16  ==  2;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;17
+c_qPlann16_iii;{If wants to leave full time education {If Plann16 = 2};qc_Plann16  ==  2;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;18
+c_qAmbit;{If have ideas {If Ambit= 1}};qc_Ambit ==  1;CcSequence;YOUNG PERSON RESPONDENT FUTURE PLANS & ADVICE;0;34
+c_qScompin;{Ask if Not interpreter, code 1 at Interp};;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;3
+c_qSCompAdi_xvi;{If accepts self-completion (SCompAdi=1 or 3)};qc_SCompAdi == 1 || qc_SCompAdi == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;4
+c_qScompint_i;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;5
+c_qScompint_ii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;6
+c_qScompint_iii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;7
+c_qScompint_iv;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;8
+c_qScompint_v;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;9
+c_qScompint_vi;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;10
+c_qScompint_vii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;11
+c_qScompint_viii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;12
+c_qScompint_ix;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;13
+c_qScompint_x;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;14
+c_qScompint_xi;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;15
+c_qScompint_xii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;16
+c_qScompint_xiii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;17
+c_qScompint_xiv;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;18
+c_qScompint_xv;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;19
+c_qScompint_xvi;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;20
+c_qScompint_xvii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;21
+c_qScompint_xviii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;22
+c_qScompint_xix;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;23
+c_qScompint_xx;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;24
+c_qScompint_xxi;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;25
+c_qScompint_xxii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;26
+c_qScompint_xxiii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;27
+c_qScompint_xxiv;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION ATTITUDES TO SCHOOL;0;28
+c_qMGetOn;{If accepted self-completion and has resident mum/step-mum/adoptive mum/foster mum};;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;2
+c_qFGetOn;{If accepted self-completion and has resident Dad/step-dad/adoptive dad/foster dad};;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;3
+c_qMQuarre;{If accepted self-completion and has resident mum/step-mum/adoptive mum/foster mum};;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;4
+c_qFQuarre;{If accepted self-completion and has resident Dad/step-dad/adoptive dad/foster dad};;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;5
+c_qTalkMum;{If accepted self-completion and has resident mum/step-mum/adoptive mum/foster mum};;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;6
+c_qTalkDad;{If accepted self-completion and has resident Dad/step-dad/adoptive dad/foster dad};;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;7
+c_qMothDec;{If accepted self-completion and has resident mum/step-mum/adoptive mum/foster mum};;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;8
+c_qFathDec;{If accepted self-completion and has resident Dad/step-dad/adoptive dad/foster dad};;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;9
+c_qInCare;{If not living in an institution{ If InCare <> Inst}};qc_InCare  !=  Inst;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;10
+c_qScompint_xxv;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;11
+c_qScompint_xxvi;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;12
+c_qScompint_xxvii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RELATIONS WITH PARENTS;0;13
+c_qScompint_xxviii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;2
+c_qTruant_i;{If has played truant in the last 12 months {If Truant = 1}};qc_Truant  ==  1;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;3
+c_qTruant_ii;{If has played truant in the last 12 months {If Truant = 1}};qc_Truant  ==  1;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;4
+c_qTruant2;{If other main reason {If Truant2 = 6}};qc_Truant2  ==  6;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;5
+c_qScompint_xxix;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;6
+c_qTruant3;{If parents keep off school {Truant3 = 1}};qc_Truant3  ==  1;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;7
+c_qScompint_xxx;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;8
+c_qScompint_xxxi;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;9
+c_qScompint_xxxii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;10
+c_qScompint_xxxiii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;11
+c_qScompint_xxxiv;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;12
+c_qActHit;{For each type of bullying experienced, ask separately (If Names or ExcPal or Money or ThHit or ActHit = 1)};qc_ActHit == 1;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;13
+c_qScompint_xxxv;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;14
+c_qCignow;{If smoke cigarettes {If Cignow = 1}};qc_Cignow  ==  1;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;15
+c_qScompint_xxxvi;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;16
+c_qAlcEver;{If ever had alcoholic drink {AlcEver=yes}};qc_AlcEver == yes;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;17
+c_qAlcMon;{If had a drink in last 12 months {AlcMon = Yes}};qc_AlcMon  ==  Yes;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;18
+c_qScompint_xxxvii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;19
+c_qScompint_xxxviii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;20
+c_qScompint_xxxix;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;21
+c_qScompint_xl;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;22
+c_qScompint_xli;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;23
+c_qScompint_xlii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;24
+c_qScompint_xliii;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;25
+c_qScompint_xliv;{If accept self-completion or interviewer administered {If Scompint=1 or 3}};qc_Scompint == 1 || qc_Scompint == 3;CcSequence;YOUNG PERSON SELF-COMPLETION RISK FACTORS (TRUANCY, BULLYING, SMOKING, DRUGS);0;26
+c_qCare_i;{If look after ofher people {If Care=1}};qc_Care == 1;CcSequence;YOUNG PERSON FACE-TO-FACE CONTINUED HOUSEHOLD RESPONSIBILITIES;0;3
+c_qCare_ii;{If look after ofher people {If Care=1}};qc_Care == 1;CcSequence;YOUNG PERSON FACE-TO-FACE CONTINUED HOUSEHOLD RESPONSIBILITIES;0;4
+c_qCare_iii;{If look after ofher people {If Care=1}};qc_Care == 1;CcSequence;YOUNG PERSON FACE-TO-FACE CONTINUED HOUSEHOLD RESPONSIBILITIES;0;5
+c_qCareHr1;{If ever misses school CareHr1=1};qc_CareHr1 == 1;CcSequence;YOUNG PERSON FACE-TO-FACE CONTINUED HOUSEHOLD RESPONSIBILITIES;0;6
+c_qJob_i;{If has job (Job=Yes)l};(qc_Job == Yes);CcSequence;YOUNG PERSON FACE-TO-FACE CONTINUED HOUSEHOLD RESPONSIBILITIES;0;9
+c_qJob_ii;{If has job (Job=Yes)l};(qc_Job == Yes);CcSequence;YOUNG PERSON FACE-TO-FACE CONTINUED HOUSEHOLD RESPONSIBILITIES;0;10
+c_qHcomG;{If plays computer games (HcomG=2-4)};(qc_HcomG == 2-4);CcSequence;YOUNG PERSON RESPONDENT USE OF LEISURE TIME;0;4
+c_qWhoFree;{If goes out mainly with friends or to their houses (WhoFree=1 or 2)};qc_WhoFree == 1 || qc_WhoFree == 2;CcSequence;YOUNG PERSON RESPONDENT USE OF LEISURE TIME;0;8
+c_qRelig1_v;{If identifies with religion (Relig1<>None)};(qc_Relig1 != None);CcSequence;YOUNG PERSON RESPONDENT USE OF LEISURE TIME;0;11
+c_qRelig4;{If has gone to religious classes/courses in last 12 months (Relig4=Yes)};(qc_Relig4 == Yes);CcSequence;YOUNG PERSON RESPONDENT USE OF LEISURE TIME;0;12

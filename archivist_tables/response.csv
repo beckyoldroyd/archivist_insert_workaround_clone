@@ -1,7 +1,39 @@
 Label;Type;Type2;Format;Min;Max
-Generic text;Text;;;;255
-How many I;Numeric;Integer;;0;
-Generic time;Date;Time;;;
-How many F;Numeric;Float;;0;
-Months Years;Date;Duration;PnnYnnM;;
-Generic date;Date;Date;;;
+Open answer;Text;;;;
+DATETYPE;Datetime;Date;;;
+Range: 0-97;Numeric;Integer;;0;97
+Open answer: up to 100 characters;Text;;;;100
+Range: 0-95;Numeric;Integer;;0;95
+Range: 0-10;Numeric;Integer;;0;10
+Open answer: up to 50 characters;Text;;;;50
+Open answer: up to 30 characters;Text;;;;30
+Enter '95' if respondent is still in full-time education.;Text;;;;95
+Range: 15-95;Numeric;Integer;;15;95
+Range: 1940-2004;Numeric;Integer;;1940;2004
+Range: 1970-2004;Numeric;Integer;;1970;2004
+Open type: long verbatim answer;Text;;;;
+Enter description.;Text;;;;
+ENTER POUNDS AND PENCE PER HOUR;Text;;;;
+Range: 0-1000000;Numeric;Integer;;0;1000000
+Range: 0-50;Text;;;0;50
+Range: 0-10000000;Numeric;Integer;;0;10000000
+Range: 0-32;Numeric;Integer;;0;32
+Range: 1988-2004;Numeric;Integer;;1988;2004
+ENTER YEAR THIS PERIOD STARTED AS A 4-DIGIT NUMBER;Text;;;;4
+Range: 0-14;Numeric;Integer;;0;14
+Range: 1-99;Numeric;Integer;;1;99
+ENTER A NUMBER FOR EACH SORT OF BULLYING THAT YOU KNOW HAS HAPPENED;Text;;;;
+Range: 0-99;Numeric;Integer;;0;99
+Range: 0-60;Numeric;Integer;;0;60
+Enter full address;Text;;;;
+Range: 1-95;Numeric;Integer;;1;95
+Open answer: up to 10 characters;Text;;;;10
+Open answer:;Text;;;;
+Range: 0-5;Numeric;Integer;;0;5
+Range: 0-12;Numeric;Integer;;0;12
+Open answer: up to 25 characters;Text;;;;25
+Range: 1-168;Numeric;Integer;;1;168
+Range: 0-997;Numeric;Integer;;0;997
+Range: 1-37;Numeric;Integer;;1;37
+Range: 0-150;Numeric;Integer;;0;150
+Range: 0-24;Numeric;Integer;;0;24
