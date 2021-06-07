@@ -114,23 +114,24 @@ cs_ElseH;8;8;Other child(ren) under 16
 cs_ElseH;9;9;Other adult(s) including visitor
 cs_ElseH;10;10;Someone else
 cs_DispRes;1;1;Press 1 and <Enter> to continue
-cs_Ed1b;2;2;
-cs_Ed1b;3;3;
-cs_Ed1b;4;4;
-cs_Ed1b;5;5;
 cs_Ed1b;6;6;
-cs_Qualb;5;5;GCSE grades D-G
+cs_Ed1b;5;5;
+cs_Ed1b;3;3;
+cs_Ed1b;2;2;
+cs_Ed1b;4;4;
+cs_Qualb;1;1;Which qualifications do you have?
 cs_Qualb;1;1;Yes
-cs_Qualb;6;6;CSE grade 1
 cs_Qualb;2;2;No
-cs_Qualb;7;7;CSE grade 2-5
 cs_Qualb;1;1;O level (obtained before 1975)
 cs_Qualb;2;2;O level A-C (1975 or later)
 cs_Qualb;3;3;O level D,E (1975 or later)
 cs_Qualb;4;4;GCSE grades A-C
-cs_Qualc;1;1;Yes
+cs_Qualb;5;5;GCSE grades D-G
+cs_Qualb;6;6;CSE grade 1
+cs_Qualb;7;7;CSE grade 2-5
 cs_Qualc;2;2;
 cs_Qualc;3;3;No
+cs_Qualc;1;1;Yes
 cs_Quald;1;1;Higher National Certificate (HNC) or Diploma (HND),BEC/TEC/BTEC / Scotvec Higher Certificate or Higher Diploma /or NVQ4/SVQ4
 cs_Quald;2;2;Ordinary National Certificate (ONC) or Diploma (OND),BEC/TEC/BTEC / Scotvec National Certificate or Diploma / or NVQ3/SVQ3
 cs_Quald;3;3;City & Guilds Certificate - Full Technological/Part III /or Scotvec Higher National Units / or NVQ3/SVQ3
@@ -149,8 +150,8 @@ cs_Qualf;5;5;Nursing qualifications Non-Degree (eg SEN, SRN, SCM, RGN)
 cs_Qualf;6;6;A Levels
 cs_Qualf;7;7;AS Levels
 cs_Qualf;8;8;Other technical, professional or higher qualifications (specify)
-cs_QualH;1;1;Yes
 cs_QualH;2;2;No
+cs_QualH;1;1;Yes
 cs_QualH;1;1;Higher Grade
 cs_QualH;2;2;Standard Grade level (1-3)
 cs_QualH;3;3;Standard Grade level (4-7)
@@ -165,9 +166,9 @@ cs_Apprent;2;2;Yes, overseas
 cs_Apprent;3;3;No
 cs_Overs;1;1;Yes
 cs_Overs;2;2;No
+cs_Otype;1;1;School exam Below University Entrance Level (i.e. equivalent to GCSE/O-Level)
 cs_Otype;2;2;School exam University Entrance Level (i.e. equivalent to A-Level)
 cs_Otype;3;3;First Degree from University or similar institution (i.e. equivalent to BA, B.Ed, BSc)
-cs_Otype;1;1;School exam Below University Entrance Level (i.e. equivalent to GCSE/O-Level)
 cs_Otype;4;4;Higher Degree (i.e. equivalent to MA, MSc, PhD)
 cs_Otype;5;5;Commercial qualifications (e.g. typing, shorthand, book-keeping, commerce)
 cs_Otype;6;6;Any other vocational or work related qualification
@@ -175,8 +176,8 @@ cs_Otype;7;7;Some other sort of qualification
 cs_Ed3;1;1;Yes
 cs_Ed3;2;2;No
 cs_Ed3;3;3;Didnt know father
-cs_Ed4;2;2;No
 cs_Ed4;1;1;Yes
+cs_Ed4;2;2;No
 cs_Ed4;3;3;Didnt know mother
 cs_Wrk1a;1;1;Full-time paid employee (30 or more hours a week)
 cs_Wrk1a;2;2;Part-time paid employee (under 30 hours a week)
@@ -410,11 +411,11 @@ cs_RepRed1;1;1;Yes
 cs_RepRed1;2;2;No
 cs_RepRed1;3;3;Dont know
 cs_RepRed1;4;4;Only if its bad (DO NOT READ OUT)
+cs_RepRed2;5;5;Hardly ever
+cs_RepRed2;4;4;Less than half
 cs_RepRed2;1;1;Every time a report comes
 cs_RepRed2;2;2;Most times
 cs_RepRed2;3;3;About half
-cs_RepRed2;4;4;Less than half
-cs_RepRed2;5;5;Hardly ever
 cs_Schact;1;1;Help out in class
 cs_Schact;2;2;Help out elsewhere e.g. library, school trips, dinner duties
 cs_Schact;3;3;Help with fund-raising activities
@@ -962,13 +963,13 @@ cs_FaveS;14;14;Music
 cs_FaveS;13;13;Modern languages (e.g. French, German, Spanish)
 cs_FaveS;12;12;English
 cs_FaveS;11;11;Art
-cs_FaveS;4;4;ICT/Information and Communication Technology/Computing
+cs_FaveS;6;6;History
 cs_FaveS;9;9;Business studies or economics
 cs_FaveS;8;8;Physical Education (p.e.)/Games/Sport (including individual sports)
 cs_FaveS;7;7;Geography
-cs_FaveS;6;6;History
-cs_FaveS;5;5;Home Economics
 cs_FaveS;10;10;Humanities, social studies or vocational studies
+cs_FaveS;5;5;Home Economics
+cs_FaveS;4;4;ICT/Information and Communication Technology/Computing
 cs_FaveS;3;3;Design and Technology
 cs_FaveS;2;2;Science (biology, chemistry, physics)
 cs_FaveS;1;1;Mathematics
@@ -977,11 +978,11 @@ cs_HateS;17;17;Sex and health education
 cs_HateS;16;16;Religious studies
 cs_HateS;15;15;Drama or media/film/television studies or communication studies
 cs_HateS;14;14;Music
-cs_HateS;13;13;Modern languages (e.g. French, German, Spanish)
 cs_HateS;19;19;Other (specify)
+cs_HateS;12;12;English
 cs_HateS;11;11;Art
 cs_HateS;10;10;Humanities, social studies or vocational studies
-cs_HateS;12;12;English
+cs_HateS;13;13;Modern languages (e.g. French, German, Spanish)
 cs_HateS;8;8;Physical Education (p.e.)/Games/Sport (including individual sports)
 cs_HateS;7;7;Geography
 cs_HateS;6;6;History
@@ -1150,11 +1151,11 @@ cs_SComhel;3;3;Not very important
 cs_SComhel;4;4;Not at all important
 cs_MobPho1;1;1;Yes
 cs_MobPho1;2;2;No
-cs_MobP2;4;4;Playing games
-cs_MobP2;3;3;Sending picture messages to someone
-cs_MobP2;5;5;None of these
 cs_MobP2;1;1;Accessing web sites
 cs_MobP2;2;2;Emailing someone
+cs_MobP2;3;3;Sending picture messages to someone
+cs_MobP2;4;4;Playing games
+cs_MobP2;5;5;None of these
 cs_SSsport;1;1;Yes
 cs_SSsport;2;2;No
 cs_SSportF;1;1;5 times a week or more
