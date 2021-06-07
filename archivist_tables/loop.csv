@@ -1,4 +1,4 @@
 Label;Loop_While;Start_value;End_Value;Variable;Parent_Type;Parent_Name;Branch;Position
 l_Household;for each household member;1;;Household;CcSequence;Household section household members;0;7
-l_R;for each household member;1;;R;CcSequence;Household section household members;0;11
+l_R;for each household member;1;;R;CcSequence;Household section household members;0;12
 l_JHAct;for all activities since young person’s birth/parent’s arrival in same household;1;;JHAct;CcSequence;INDIVIDUAL PARENT QUESTIONS EMPLOYMENT/ACTIVITY HISTORY;0;6

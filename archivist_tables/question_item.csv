@@ -4,31 +4,27 @@ qi_Intyp;What kind of institution does the young person live in?;INTERVIEWER COD
 qi_SHGInt;Who normally lives at this address?;;cs_SHGInt;CcSequence;Household section household members;0;5;1;1
 qi_Name;"RECORD THE NAME (OR A UNIQUE IDENTIFIER) FOR EACH MEMBER OF THE HOUSEHOLD.
 (Text fill if institutions:INTERVIEWER: FOR YOUNG PEOPLE LIVING IN INSTITUTIONS, RECORD DETAILS OF YOUNG PERSON ONLY. JUST PRESS THE <ENTER> KEY TO CONTINUE}
-(Text fill if private household: INTERVIEWER: THE NAME OF THE YOUNG PERSON WILL BE FILLED IN AUTOMATICALLY AS NUMBER 1. JUST PRESS THE <ENTER> KEY TO CONTINUE";;;CcCondition;c_qAgeIf;0;1;1;1
-qi_InfoN;INTERVIEWER: ENTER THE NAME OF THE PERSON GIVING YOU INFORMATION ABOUT THE HOUSEHOLD. THEY MUST BE A PARENT OR ADULT GUARDIAN OF THE YOUNG PERSON.;;Open answer;CcCondition;c_qAgeIf;0;2;1;1
-qi_YPKnown;How does (text fill: name of sample young person) like to be known ?;;Open answer;CcCondition;c_qAgeIf;0;3;1;1
-qi_YPSEX;Interviewer: ask sex of (text fill: name of sample young person) or just code;;cs_YPSEX;CcCondition;c_qAgeIf;0;4;1;1
+(Text fill if private household: INTERVIEWER: THE NAME OF THE YOUNG PERSON WILL BE FILLED IN AUTOMATICALLY AS NUMBER 1. JUST PRESS THE <ENTER> KEY TO CONTINUE";;;CcCondition;c_qYPEthnic;0;1;1;1
+qi_InfoN;INTERVIEWER: ENTER THE NAME OF THE PERSON GIVING YOU INFORMATION ABOUT THE HOUSEHOLD. THEY MUST BE A PARENT OR ADULT GUARDIAN OF THE YOUNG PERSON.;;Open answer;CcCondition;c_qYPEthnic;0;2;1;1
+qi_YPKnown;How does (text fill: name of sample young person) like to be known ?;;Open answer;CcCondition;c_qYPEthnic;0;3;1;1
+qi_YPSEX;Interviewer: ask sex of (text fill: name of sample young person) or just code;;cs_YPSEX;CcCondition;c_qYPEthnic;0;4;1;1
 qi_YPDOB;"What is (text fill: name of sample young person) date of birth?
-For day not given, enter 98 for day:";INTERVIEWER:For month not given, enter 98 for month.;DATETYPE;CcCondition;c_qAgeIf;0;5;1;1
+For day not given, enter 98 for day:";INTERVIEWER:For month not given, enter 98 for month.;DATETYPE;CcCondition;c_qYPEthnic;0;5;1;1
 qi_YPEthnic;To which of the groups on this card would you say (text fill: name of sample young person) belongs?(CODE ONE ONLY);"SHOW CARD A2
-QUESTION IN THE BOX TO BE REPEATED FOR EVERY HOUSEHOLD MEMBER
-{Ask for each household member)";cs_YPEthnic;CcCondition;c_qAgeIf;0;6;1;1
-qi_Sex;"INTERVIEWER: Ask sex of (text fill: name of household member) or just code.
-{Ask for each household member)";;cs_Sex;CcLoop;l_Household;0;1;1;1
+QUESTION IN THE BOX TO BE REPEATED FOR EVERY HOUSEHOLD MEMBER";cs_YPEthnic;CcCondition;c_qYPEthnic;0;6;1;1
+qi_Sex;INTERVIEWER: Ask sex of (text fill: name of household member) or just code.;;cs_Sex;CcCondition;c_qAgeIf;0;1;1;1
 qi_AgeIf;What was (text fill: your/name of household members) age last birthday?;"INTERVIEWER:ENTER 0 FOR A YOUNG PERSON UNDER 12 MONTHS.
-PROMPT FOR NEAR ESTIMATE IF RESPONDENT IS UNSURE";cs_AgeIf;CcLoop;l_Household;0;2;1;1
+PROMPT FOR NEAR ESTIMATE IF RESPONDENT IS UNSURE";cs_AgeIf;CcCondition;c_qAgeIf;0;2;1;1
 qi_MarStat;"Code first that applies.
 (text fill: Are you/Is (text fill: name of household member))...";"INTERVIEWER:Ask or record.
 INTERVIEWER:";cs_MarStat;CcCondition;c_qMarStat;0;1;1;1
 qi_LiveWit;May I just check, are you/is (name of household member) living with someone in the household as a couple?;INTERVIEWER:;cs_LiveWit;CcCondition;c_qmember;0;1;1;1
 qi_EmpStat;"SHOW CARD A1
 INTERVIEWER: Code main activity.
-INTERVIEWER: If doing two or more jobs, both less than 30 hours per week which sum to more than 30 then code 1
-{Ask for each household member)";;cs_EmpStat;CcCondition;c_qmember;0;2;1;1
+INTERVIEWER: If doing two or more jobs, both less than 30 hours per week which sum to more than 30 then code 1";;cs_EmpStat;CcCondition;c_qmember;0;2;1;1
 qi_EthGrp;To which of these groups do you consider (text fill: you belong/(text fill: name of household member) belongs) ? CODE ONE ONLY;"SHOW CARD A2.
 INTERVIEWER: This is a question of respondent's (or proxy's) opinion.";cs_EthGrp;CcCondition;c_qmember;0;3;1;1
-qi_EthOt;Please can you describe (text fill: your / (text fill: name of household member)s) ethnic group?;"INTERVIEWER: ENTER DESCRIPTION OF ETHNIC GROUP.
-{Ask for each household member)";Open answer: up to 100 characters;CcCondition;c_qEthGrp;0;1;1;1
+qi_EthOt;Please can you describe (text fill: your / (text fill: name of household member)s) ethnic group?;INTERVIEWER: ENTER DESCRIPTION OF ETHNIC GROUP.;Open answer: up to 100 characters;CcCondition;c_qEthGrp;0;1;1;1
 qi_R;"SHOW CARD A3.
 INTERVIEWER: Code relationship of each household member to the others (text fill: Name of household member) is (text fill: name of other household members)'s...";;cs_R;CcLoop;l_R;0;1;1;1
 qi_STypeE;How old was (text fill: name of sibling aged 16 or over) when (text fill: he/she) completed continuous full time education?;INTERVIEWER: Enter '0' if respondent had no formal education. Enter '95' if still in full time education;Range: 0-95;CcCondition;c_qempstat;0;1;1;1
@@ -72,7 +68,7 @@ If YES check if full or part time
 If NO Ask Which of the answers on this card best describes what youre doing at the moment?";"SHOW CARD C6
 INTERVIEWER: CODE MAIN ACTIVITY.";cs_Wrk1a;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;3;1;1
 qi_WrkY;Can you tell me when you started this period of (text fill: type of current activity)?;"NOTE: THIS QUESTION IS ABOUT PERIODS OF ECONOMIC ACTIVITY NOT ABOUT INDIVIDUAL JOBS
-INTERVIEWER: Enter year started (YYYY).";Range: 1940-2004;CcCondition;c_qWrkY;0;1;1;1
+INTERVIEWER: Enter year started (YYYY).";Range: 1940-2004;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;4;1;1
 qi_WrkM;If 'DK', - 'Was it Winter, Spring...? and enter mid-season month.;"INTERVIEWER:Enter month started.
 WINTER = JANUARY
 SPRING = APRIL
@@ -114,11 +110,11 @@ Don't know";"NO USUAL: GIVE AVERAGE
 WRITE IN:";Range: 0-50;CcCondition;c_qSalar3;0;4;1;1
 qi_Wrk12a;Are/were you working on your own or do/did you have any employees?;INTERVIEWER: Ask or code:;cs_Wrk12a;CcCondition;c_qnot;0;1;1;1
 qi_Wrk12b;How many people do/did you employ at the place where you work/worked?;;cs_Wrk12b;CcCondition;c_qWrkStat_iii;0;1;1;1
-qi_SeiInc1;If wrk1a = 3 or 4 and self employed for LESS than a year (computed)};"How much did you earn before tax but after deductions of any expenses and wages since becoming self-employed? INTERVIEWER: THIS IS FOR THE TOTAL PERIOD THAT THE RESPONDENT WAS SELF-EMPLOYED
-INTERVIEWER: If nothing or made a loss, enter zero.";Range: 0-10000000;CcCondition;c_qWrkStat_iv;0;1;1;1
-qi_SeiInc2;If wrk1a = 3 or 4 and self employed for MORE than a year (computed)};"SHOW CARD C7
-Please look at this card and estimate the amount that you expect to earn before tax but after deductions of any expenses and wages in the first full 12 months that you will have been self-employed, that is up to the end of (month) next?";Range: 0-32;CcCondition;c_qWrkStat_iv;0;2;1;1
-qi_SeiInc3;How much did you earn in the last tax year, before tax but after deduction of any expenses and wages.;INTERVIEWER: If nothing or made a loss, enter zero.;Range: 0-10000000;CcCondition;c_qWrkStat_iv;0;3;1;1
+qi_SeiInc1;"How much did you earn before tax but after deductions of any expenses and wages since becoming self-employed? INTERVIEWER: THIS IS FOR THE TOTAL PERIOD THAT THE RESPONDENT WAS SELF-EMPLOYED
+INTERVIEWER: If nothing or made a loss, enter zero.";;Range: 0-10000000;CcCondition;c_qWrkStat_iv;0;1;1;1
+qi_SeiInc2;"SHOW CARD C7
+Please look at this card and estimate the amount that you expect to earn before tax but after deductions of any expenses and wages in the first full 12 months that you will have been self-employed, that is up to the end of (month) next?";;Range: 0-32;CcCondition;c_qwrk1a_i;0;1;1;1
+qi_SeiInc3;How much did you earn in the last tax year, before tax but after deduction of any expenses and wages.;INTERVIEWER: If nothing or made a loss, enter zero.;Range: 0-10000000;CcCondition;c_qwrk1a_ii;0;1;1;1
 qi_JHChkY;Can I just check, when did you first start living in the same household as (text fill: name of sample young person)? Could you tell me the year first and then the month please?;"INTERVIEWER: Enter year.
 IF RESPONDENT LIVING IN HOUSEHOLD WHEN (text fill: NAME OF SAMPLE YOUNG PERSON) WAS BORN, ENTER 1988.";Range: 1988-2004;CcSequence;INDIVIDUAL PARENT QUESTIONS EMPLOYMENT/ACTIVITY HISTORY;0;3;1;1
 qi_JHChkM;"(Can I just check, when did you first start living in the same household as (text fill: name of sample young person? Could you tell me the year first and then the month please?)
@@ -453,16 +449,31 @@ qi_Choic;When it was decided which subjects you would be doing in Year 10, who d
 READ OUT AND CODE ALL THAT APPLY
 PROMPT: You may mention more than one person if this was the case?";cs_Choic;CcCondition;c_qY10Choi_i;0;1;1;1
 qi_Choice1;"Who out of those do you think had) the most say in deciding which subjects you would be studying? CODE ONE ONLY
-Dont know .";SHOW CARD E7;cs_Choice1;CcCondition;c_qChoice3;0;1;1;1
-qi_Choice3;Don't know;INTERVIEWER: Prompt with categories if necessary.;cs_Choice3;CcCondition;c_qChoice3;0;2;1;1
-qi_Choic3a;Here are some things that other students have said about the reasons why they chose their subjects for Year 10 and I'd like to ask how much you think they apply to you.;"SHOW CARD E4
-NOT GIVEN A CHOICE, SCHOOL DECIDED (DO NOT READ OUT)";cs_Choic3a;CcCondition;c_qY10Choi_ii;0;1;1;1
-qi_Choice4;How much do you agree or disagree that...;SHOW CARD E4;cs_Choice4;CcCondition;c_qY10Choi_vi;0;1;1;1
-qi_Choice5;How much do you agree or disagree that...;SHOW CARD E4;cs_Choice5;CcCondition;c_qY10Choi_viii;0;1;1;1
-qi_Choice6;How much do you agree or disagree that...;SHOW CARD E4;cs_Choice6;CcCondition;c_qY10Choi_x;0;1;1;1
-qi_Choice7;How much do you agree or disagree that...;SHOW CARD E4;cs_Choice7;CcCondition;c_qY10Choi_xii;0;1;1;1
-qi_Choice8;How much do you agree or disagree that...;SHOW CARD E4;cs_Choice8;CcCondition;c_qY10Choi_xiv;0;1;1;1
-qi_Y10Sat_1;INTERVIEWER: READ OUT:;;cs_Y10Sat_1;CcCondition;c_qY10Choi_xvii;0;1;1;1
+Dont know .";SHOW CARD E7;cs_Choice1;CcCondition;c_qChoice8;0;1;1;1
+qi_Choice3;"(If Y10Choi = 1) How much didthe final decision on the subjects you will be doing depend on the grades you gotin your most recent exams?: (If Y10Choi <> 1) How much will the final decision on which subjects you will be doing depend on the grades you get in you exams?
+Don't know";INTERVIEWER: Prompt with categories if necessary.;cs_Choice3;CcCondition;c_qChoice8;0;2;1;1
+qi_Choic3a;"Here are some things that other students have said about the reasons why they chose their subjects for Year 10 and I'd like to ask how much you think they apply to you.
+(If Y10Choi = 1) Thinking about when you decided your subjects for Year 10, how much do you agree or disagree with each of the reasons I am going to read out.
+(If Y10Choi <>1) I Thinking about when you decide your subjects for Year 10, how much do you agree or disagree with each of the reasons I am going to read out.
+(If Y10Choi = 1) * I chose these subjects because I only wanted to do subjects that I know I would do well at in exams.
+(If Y10Choi <>1) I only want to do subjects that I know I will do well at in exams";"SHOW CARD E4
+NOT GIVEN A CHOICE, SCHOOL DECIDED (DO NOT READ OUT)";cs_Choic3a;CcCondition;c_qChoice8;0;3;1;1
+qi_Choice4;"How much do you agree or disagree that...
+(If Y10Choi = 1) I chose these subjects becauseI only wanted to do subjects I'm interested in.
+(If Y10Choi <>1) I only want to do subjects Im interested in";SHOW CARD E4;cs_Choice4;CcCondition;c_qChoice8;0;4;1;1
+qi_Choice5;"How much do you agree or disagree that...
+(If Y10Choi = 1) I chose these subjects becauseI like the teachers who teach these subjects in Year 10.:
+(If Y10Choi <>1) I only want to do subjects in year 10 where I like the Year 10 teachers for these subjects";SHOW CARD E4;cs_Choice5;CcCondition;c_qChoice8;0;5;1;1
+qi_Choice6;"How much do you agree or disagree that...
+(If Y10Choi = 1) I chose these subjects becauseI wanted to do the same subjects as my friends.
+(If Y10Choi <> 1) In Year 10 I want to do the same subjects as my friends";SHOW CARD E4;cs_Choice6;CcCondition;c_qChoice8;0;6;1;1
+qi_Choice7;"How much do you agree or disagree that...
+(If Y10Choi = 1) I chose these subjects becauseI will need passes in them for the courses I want to do after Year 11:
+(If Y10Choi <>1) The subjects I choose for Year 10 will be the ones I need passes for in courses after Year 11";SHOW CARD E4;cs_Choice7;CcCondition;c_qChoice8;0;7;1;1
+qi_Choice8;"How much do you agree or disagree that...
+(If Y10Choi = 1) I chose these subjects because I will need passes in them for the job/career I want to have after I leave school:
+(If Y10Choi <>1) The subjects I choose for Year 10 will be the ones I will need passes in for the job or career I want to have after I leave school";SHOW CARD E4;cs_Choice8;CcCondition;c_qChoice8;0;8;1;1
+qi_Y10Sat_1;How satisfied (If Y10Choi = 1) were (If Y10Choi <> 1) are you with the choice of courses and subjects for Year 10 available to you at this school - would you say you (If Y10Choi = 1) were... (If Y10Choi <> 1) are;INTERVIEWER: READ OUT:;cs_Y10Sat_1;CcCondition;c_qY10Choi_ii;0;1;1;1
 qi_Srule;Do you think that your school has...;"I am going to ask you a few questions about discipline and behaviour at your school.
 INTERVIEWER: READ OUT";cs_Srule;CcSequence;YOUNG PERSON RESPONDENT RULES & DISCIPLINE;0;2;1;1
 qi_Sdisc;Do you think the discipline in your school is...;INTERVIEWER: READ OUT;cs_Sdisc;CcSequence;YOUNG PERSON RESPONDENT RULES & DISCIPLINE;0;3;1;1

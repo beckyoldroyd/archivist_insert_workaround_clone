@@ -1,15 +1,16 @@
 Label;Literal;Logic;Parent_Type;Parent_Name;Branch;Position
 c_qInCar_i;{Ask if InCar=3);qc_InCar == 3;CcSequence;Household section household members;0;3
-c_qAgeIf;{Record for each household member);;CcSequence;Household section household members;0;6
-c_qMarStat;{Record for each household member aged 16+);;CcSequence;Household section household members;0;8
-c_qmember;{Ask if household member 16+ AND not married/living with partner and more than one household member >16);qc_member 16+ && not married/living with partner && more than one household qc_member >16;CcSequence;Household section household members;0;9
-c_qEthGrp;{Ask if EthGrp = 3, 7, 11, 14 or 16);qc_EthGrp == 3 || qc_EthGrp == 7 || qc_EthGrp == 11 || qc_EthGrp == 14 || qc_EthGrp == 16;CcSequence;Household section household members;0;10
-c_qempstat;{Ask for any full/half/step siblings of sample young person aged who are 16+ AND not in full time education, empstat=5);qc_empstat == 5;CcSequence;Household section household members;0;12
-c_qHous12;{Ask all not in institutions/hotels };;CcSequence;Household section household members;0;13
-c_qage;{ If more than one person in household with age >= 16};qc_age > ==  16;CcSequence;Household section household members;0;14
-c_qHRefPerB;{If accommodation jointly owned/rented or dk/ref};;CcSequence;Household section household members;0;15
-c_qUseVc;{If joint highest income or dk/ref};;CcSequence;Household section household members;0;16
-c_qUseVC;{If has vehicles (UseVC=Yes) };(qc_UseVC == Yes);CcSequence;Household section household members;0;17
+c_qYPEthnic;{Record for each household member);;CcSequence;Household section household members;0;6
+c_qAgeIf;{Ask for each household member);;CcSequence;Household section household members;0;8
+c_qMarStat;{Record for each household member aged 16+);;CcSequence;Household section household members;0;9
+c_qmember;{Ask if household member 16+ AND not married/living with partner and more than one household member >16);qc_member 16+ && not married/living with partner && more than one household qc_member >16;CcSequence;Household section household members;0;10
+c_qEthGrp;{Ask if EthGrp = 3, 7, 11, 14 or 16);qc_EthGrp == 3 || qc_EthGrp == 7 || qc_EthGrp == 11 || qc_EthGrp == 14 || qc_EthGrp == 16;CcSequence;Household section household members;0;11
+c_qempstat;{Ask for any full/half/step siblings of sample young person aged who are 16+ AND not in full time education, empstat=5);qc_empstat == 5;CcSequence;Household section household members;0;13
+c_qHous12;{Ask all not in institutions/hotels };;CcSequence;Household section household members;0;14
+c_qage;{ If more than one person in household with age >= 16};qc_age > ==  16;CcSequence;Household section household members;0;15
+c_qHRefPerB;{If accommodation jointly owned/rented or dk/ref};;CcSequence;Household section household members;0;16
+c_qUseVc;{If joint highest income or dk/ref};;CcSequence;Household section household members;0;17
+c_qUseVC;{If has vehicles (UseVC=Yes) };(qc_UseVC == Yes);CcSequence;Household section household members;0;18
 c_qEnglang_i;{Ask if speaks other language apart from English (Englang=2,3 or 4)};qc_Englang == 2 || qc_Englang == 3 || qc_Englang == 4;CcSequence;Household section languages (ask of household respondent);0;3
 c_qIncar;{Ask all unless Incar = 3 or sampled young person has only one parent at the relationship grid };qc_Incar == 3;CcSequence;Household section establishing main parent respondent;0;2
 c_qInCar_ii;{If InCar = 3 or if main parent/guardian respondent is NOT a household member};qc_InCar == 3;CcSequence;Household section establishing main parent respondent;0;3
@@ -19,7 +20,6 @@ c_qQuale;{If Quale = 1};qc_Quale  ==  1;CcSequence;Household section establishin
 c_qQualg;{If Qualg = 1};qc_Qualg  ==  1;CcSequence;Household section establishing main parent respondent;0;11
 c_qOvers_i;{ If Overs = Yes );qc_Overs  ==  Yes ;CcSequence;Household section establishing main parent respondent;0;14
 c_qOvers_ii;{If Overs = Yes);qc_Overs  ==  Yes;CcSequence;Household section establishing main parent respondent;0;15
-c_qWrkY;8. Temporarily sick/disabled (If temporarily off sick from job code as employed);(If temporarily off sick from job code as employed);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;4
 c_qwrky;{If wrky <> DK, Ref};qc_wrky  !=  DK, Ref;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;5
 c_qWrk1a_i;{If not currently working (Wrk1a=5-12)};(qc_Wrk1a == 5-12);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;6
 c_qWrk2;{If not currently working but has in past (Wrk2=Yes};qc_Wrk2 == Yes;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;7
@@ -32,6 +32,8 @@ c_qSalar3;{If Salar3 <> DK, Ref)};qc_Salar3  !=  DK, Ref;CcSequence;INDIVIDUAL P
 c_qnot;Add logic check Paidovr must not = more than HrsOver{If self-employed (WrkStat=Self-employed)};(qc_WrkStat == Self-employed);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;14
 c_qWrkStat_iii;{If has employees (WrkStat=with employees)};(qc_WrkStat == with employees);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;15
 c_qWrkStat_iv;{If wrk1a is NOT 1-4a and if WrkStat=Self-employed) };qc_WrkStat == Self-employed;CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;16
+c_qwrk1a_i;If wrk1a = 3 or 4 and self employed for LESS than a year (computed)};(computed);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;17
+c_qwrk1a_ii;If wrk1a = 3 or 4 and self employed for MORE than a year (computed)};(computed);CcSequence;INDIVIDUAL PARENT QUESTIONS CURRENT ACTIVITY;0;18
 c_qJHInt;{If parent/guardians current activity started after the birth of the young person. WrkY/WrkM is after Date of Birth from sample};;CcSequence;INDIVIDUAL PARENT QUESTIONS EMPLOYMENT/ACTIVITY HISTORY;0;5
 c_qJHStM;{Ask for all activities since young persons birth/parents arrival in same household};;CcSequence;INDIVIDUAL PARENT QUESTIONS EMPLOYMENT/ACTIVITY HISTORY;0;8
 c_qJHAct;{If activity was employment (JHAct=codes 1-4)};(qc_JHAct == codes 1-4);CcSequence;INDIVIDUAL PARENT QUESTIONS EMPLOYMENT/ACTIVITY HISTORY;0;9
@@ -96,24 +98,8 @@ c_qRelig1_iii;{IF identifies with a religion (if Relig1 = 2 to 8 )};(if qc_Relig
 c_qLike;{If Like <> nothing};qc_Like  !=  nothing;CcSequence;YOUNG PERSON RESPONDENT ATTITUDES TO CURRENT SCHOOL;0;3
 c_qDidL;{If DidLi <> nothing};qc_DidLi  !=  nothing;CcSequence;YOUNG PERSON RESPONDENT ATTITUDES TO CURRENT SCHOOL;0;4
 c_qY10Choi_i;{Ask all decided which subjects studying Y10Choi = 1 }l;qc_Y10Choi  ==  1 l;CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;3
-c_qChoice3;{Ask all except dont know at choic AND if more than one response coded at Choic};;CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;4
-c_qY10Choi_ii;(If Y10Choi = 1) How much didthe final decision on the subjects you will be doing depend on the grades you gotin your most recent exams?: (If Y10Choi <> 1) How much will the final decision on which subjects you will be doing depend on the grades you get in you exams?;(If qc_qc_Y10Choi  ==  1) How much didthe final decision on the subjects you will be doing depend on the grades you gotin your most recent exams?: (If qc_qc_Y10Choi  !=  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;5
-c_qY10Choi_iii;(If Y10Choi = 1) Thinking about when you decided your subjects for Year 10, how much do you agree or disagree with each of the reasons I am going to read out.;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;6
-c_qY10Choi_iv;(If Y10Choi <>1) I Thinking about when you decide your subjects for Year 10, how much do you agree or disagree with each of the reasons I am going to read out.;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;7
-c_qY10Choi_v;(If Y10Choi = 1) * I chose these subjects because I only wanted to do subjects that I know I would do well at in exams.;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;8
-c_qY10Choi_vi;(If Y10Choi <>1) I only want to do subjects that I know I will do well at in exams;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;9
-c_qY10Choi_vii;(If Y10Choi = 1) I chose these subjects becauseI only wanted to do subjects I'm interested in.;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;10
-c_qY10Choi_viii;(If Y10Choi <>1) I only want to do subjects Im interested in;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;11
-c_qY10Choi_ix;(If Y10Choi = 1) I chose these subjects becauseI like the teachers who teach these subjects in Year 10.:;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;12
-c_qY10Choi_x;(If Y10Choi <>1) I only want to do subjects in year 10 where I like the Year 10 teachers for these subjects;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;13
-c_qY10Choi_xi;(If Y10Choi = 1) I chose these subjects becauseI wanted to do the same subjects as my friends.;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;14
-c_qY10Choi_xii;(If Y10Choi <> 1) In Year 10 I want to do the same subjects as my friends;(If qc_Y10Choi  !=  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;15
-c_qY10Choi_xiii;(If Y10Choi = 1) I chose these subjects becauseI will need passes in them for the courses I want to do after Year 11:;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;16
-c_qY10Choi_xiv;(If Y10Choi <>1) The subjects I choose for Year 10 will be the ones I need passes for in courses after Year 11;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;17
-c_qY10Choi_xv;(If Y10Choi = 1) I chose these subjects because I will need passes in them for the job/career I want to have after I leave school:;(If qc_Y10Choi  ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;18
-c_qY10Choi_xvi;(If Y10Choi <>1) The subjects I choose for Year 10 will be the ones I will need passes in for the job or career I want to have after I leave school;(If qc_Y10Choi  != 1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;19
-c_qY10Choi_xvii;{If subjects have been settled (If Y10Choi= 1)} ASK FOR ALL IN DRESS REHEARSAL;(If qc_Y10Choi ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;20
-c_qY10Choi_xviii;How satisfied (If Y10Choi = 1) were (If Y10Choi <> 1) are you with the choice of courses and subjects for Year 10 available to you at this school - would you say you (If Y10Choi = 1) were... (If Y10Choi <> 1) are;qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 1 && qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 1 && qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 1 && qc_qc_qc_qc_Y10Choi == 10 && qc_qc_qc_qc_Y10Choi == 1;CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;21
+c_qChoice8;{Ask all except dont know at choic AND if more than one response coded at Choic};;CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;4
+c_qY10Choi_ii;{If subjects have been settled (If Y10Choi= 1)} ASK FOR ALL IN DRESS REHEARSAL;(If qc_Y10Choi ==  1);CcSequence;YOUNG PERSON RESPONDENT YEAR 10 SUBJECT CHOICES;0;5
 c_qHWDo;{If ever given any homework {HWDo=1,2,3 or 4)};qc_HWDo == 1 || qc_HWDo == 2 || qc_HWDo == 3 || qc_HWDo == 4;CcSequence;YOUNG PERSON RESPONDENT HOMEWORK;0;5
 c_qHWDo1;{If spend any time doing homework {HWDo1 = 1 )};qc_HWDo1  ==  1 ;CcSequence;YOUNG PERSON RESPONDENT HOMEWORK;0;6
 c_qComLoc_i;{If uses a computer at home (ComLoc=1)};(qc_ComLoc == 1);CcSequence;YOUNG PERSON RESPONDENT ICT;0;3
