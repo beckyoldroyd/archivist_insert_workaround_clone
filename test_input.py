@@ -33,6 +33,7 @@ def test_names_subset():
     for name in names:
         assert name in valid_names
 
+
 def test_headers_match_template():
     """
     All input files should have valid headers
@@ -64,3 +65,46 @@ def test_special_characters():
             assert item not in df_input["Label"]
 
 
+def test_code_response():
+    """
+    Same codelist should have same min/max response
+    """
+
+    # read question grid file
+    qg_file = tables_dir / 'question_grid.csv'
+    if Path.exists(qg_file):
+        df_qg = pd.read_csv(qg_file, sep=None, engine='python')
+    else:
+        df_qg = pd.DataFrame(columns = ['Horizontal_Codelist_Name', 'Horizontal_min_responses', 'Horizontal_max_responses',
+                                        'Vertical_Codelist_Name', 'Vertical_min_responses', 'Vertical_max_responses'])
+
+    # read question item file
+    qi_file = tables_dir / 'question_item.csv'
+    if Path.exists(qi_file):
+        df_qi = pd.read_csv(qi_file, sep=None, engine='python')
+    else:
+        df_qi = pd.DataFrame(columns = ['Response', 'min_responses', 'max_responses'])
+
+    # get min/max response from question item file
+    df_qi_response = df_qi.loc[(df_qi.Response != None), ['Response', 'min_responses', 'max_responses']] 
+    df_qi_response.rename(columns={'Response': 'Label'}, inplace=True)
+
+    # get min/max response from question grid file
+    df_qg_horizontal = df_qg.loc[(df_qg.Horizontal_Codelist_Name != None), ['Horizontal_Codelist_Name', 'Horizontal_min_responses', 'Horizontal_max_responses']]
+    df_qg_horizontal.rename(columns={'Horizontal_Codelist_Name': 'Label',
+                                     'Horizontal_min_responses': 'min_responses',
+                                     'Horizontal_max_responses': 'max_responses'}, inplace=True)
+
+    df_qg_vertical = df_qg.loc[(df_qg.Vertical_Codelist_Name != None), ['Vertical_Codelist_Name', 'Vertical_min_responses', 'Vertical_max_responses']]
+    df_qg_vertical.rename(columns={'Vertical_Codelist_Name': 'Label',
+                                   'Vertical_min_responses': 'min_responses',
+                                   'Vertical_max_responses': 'max_responses'}, inplace=True)
+    df_gq_response = df_qg_horizontal.append(df_qg_vertical)
+
+    # combine all codes from qi and qg
+    df_qi_qg_response= df_qi_response.append(df_gq_response).drop_duplicates(keep='first').reset_index()
+
+    # duplicated row
+    df_dup = df_qi_qg_response[df_qi_qg_response.duplicated('Label')]
+
+    assert df_dup.empty, "same code list needs to have same min/max"
