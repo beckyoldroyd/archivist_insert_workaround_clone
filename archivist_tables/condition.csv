@@ -84,14 +84,12 @@ c_qInc1Est_i;{If receives any benefits (at Ben1, Ben2 or Ben3)};(at Ben1, Ben2 |
 c_qInc1Est_ii;{Ask if Inc1Est=32 700 a week or more};qc_Inc1Est == 1 || qc_Inc1Est == 32 || qc_Inc1Est == 700;CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;9
 c_qEnglang_ii;{Ask if speaks other language apart from English (Englang=2,3 or 4) and resident father/father-figure - both from HHgrid};qc_Englang == 2 || qc_Englang == 3 || qc_Englang == 4;CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;10
 c_qEnglang_iii;{Ask if speaks other language apart from English (Englang=2,3 or 4) and resident mother/mother-figure - both from HHgrid };qc_Englang == 2 || qc_Englang == 3 || qc_Englang == 4;CcSequence;MAIN PARENT RESPONDENT HOUSEHOLD RESPONSIBILITIES AND RESOURCES (Face-to-face continued);0;11
-c_qMPTitle;{Ask if did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;3
-c_qOPSTitle;{Ask if has husband/wife/partner AND did not refuse recontact at MPFnam)};;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;4
-c_qConDur4_i;{If has landline telephone (ConDur4 =1 or 3) };qc_ConDur4 == 4 || qc_ConDur4 == 1 || qc_ConDur4 == 3;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;5
-c_qConDur4_ii;{If has mobile telephone (ConDur4 =2 or 3) };qc_ConDur4 == 4 || qc_ConDur4 == 2 || qc_ConDur4 == 3;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;6
-c_qMPEmail;{If MPEmail = 1};qc_MPEmail  ==  1;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;7
-c_qMPCont;{If MPCont = 1 };qc_MPCont  ==  1;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;8
-c_qMove1yr;{If Move1yr = Yes};qc_Move1yr  ==  Yes;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;9
-c_qMovekn;{If Movekn = Yes};qc_Movekn  ==  Yes;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;10
+c_qConDur4_i;{If has landline telephone (ConDur4 =1 or 3) };qc_ConDur4 == 4 || qc_ConDur4 == 1 || qc_ConDur4 == 3;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;8
+c_qConDur4_ii;{If has mobile telephone (ConDur4 =2 or 3) };qc_ConDur4 == 4 || qc_ConDur4 == 2 || qc_ConDur4 == 3;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;9
+c_qMPEmail;{If MPEmail = 1};qc_MPEmail  ==  1;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;10
+c_qMPCont;{If MPCont = 1 };qc_MPCont  ==  1;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;11
+c_qMove1yr;{If Move1yr = Yes};qc_Move1yr  ==  Yes;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;12
+c_qMovekn;{If Movekn = Yes};qc_Movekn  ==  Yes;CcSequence;MAIN PARENT RESPONDENT FUTURE CONTACT DETAILS (DRESS REHEARSAL VERSION);0;13
 c_qEnglang_iv;{If English not only language (Englang=2,3,4)};(qc_Englang == 2,3,4);CcSequence;YOUNG PERSON RESPONDENT INTRODUCTION & DEMOGRAPHICS;0;9
 c_qEnglang_v;{If English not only language (Englang=2,3,4) };(qc_Englang == 2,3,4);CcSequence;YOUNG PERSON RESPONDENT INTRODUCTION & DEMOGRAPHICS;0;10
 c_qRelig1_iii;{IF identifies with a religion (if Relig1 = 2 to 8 )};(if qc_Relig1  ==  2 to 8 );CcSequence;YOUNG PERSON RESPONDENT INTRODUCTION & DEMOGRAPHICS;0;11
