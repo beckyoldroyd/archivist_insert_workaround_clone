@@ -9,7 +9,7 @@ import sys
 import time
 
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities 
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 driver = webdriver.Remote(
          command_executor='http://selenium-standalone-firefox:4444/wd/hub',

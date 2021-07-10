@@ -51,6 +51,7 @@ def test_unique_label():
     """
     for f in allfiles:
         if not f.stem == "codelist":
+            print(f)
             df_input = pd.read_csv(f, sep=None)
             assert df_input["Label"].nunique() == len(df_input["Label"])
 
