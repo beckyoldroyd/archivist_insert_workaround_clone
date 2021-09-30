@@ -40,7 +40,8 @@ CREATE TABLE temp_question_item (
   Branch int,
   Position int,
   min_responses int,
-  max_responses int
+  max_responses int,
+  Interviewee varchar
 );
 \COPY temp_question_item FROM 'archivist_tables_clean/question_item.csv' DELIMITER E'\t' CSV HEADER;
 
@@ -62,7 +63,8 @@ CREATE TABLE temp_question_grid (
   Horizontal_min_responses int,
   Horizontal_max_responses int,
   Vertical_min_responses int,
-  Vertical_max_responses int
+  Vertical_max_responses int,
+  Interviewee varchar
 );
 \COPY temp_question_grid FROM 'archivist_tables_clean/question_grid.csv' DELIMITER E'\t' CSV HEADER;
 

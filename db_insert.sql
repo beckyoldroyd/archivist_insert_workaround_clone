@@ -215,7 +215,7 @@ from code_lists a
 cross join instruments b
 cross join temp_sequence temp
 where b.prefix = temp.Label
-and temp.Parent_name is Null 
+and temp.Parent_name is Null
 and a.Label = 'cs_dash');
 
 SELECT pg_sleep(2);
@@ -254,7 +254,7 @@ where instruments.prefix = temp.Label
 and temp.Parent_name is Null)
 left join categories c on a.category = c.Label and c.instrument_id = (select id from instruments cross join temp_sequence temp
 where instruments.prefix = temp.Label
-and temp.Parent_name is Null) 
+and temp.Parent_name is Null)
 where c.id is not null);
 
 SELECT pg_sleep(2);
@@ -279,7 +279,7 @@ left join cc_sequences d on a.Parent_name = d.Label and d.instrument_id = b.id
 cross join temp_sequence temp
 where b.prefix = temp.Label
 and temp.Parent_name is Null);
- 
+
 SELECT pg_sleep(2);
 
 
@@ -338,7 +338,7 @@ SELECT pg_sleep(2);
 -- 13. question_items;
 \qecho '13. question_items';
 INSERT INTO question_items (Label, literal, instruction_id, created_at, updated_at, instrument_id, question_type)
-(select a.Label, 
+(select a.Label,
         a.Literal,
         b.id,
         current_timestamp,
@@ -358,9 +358,9 @@ SELECT pg_sleep(2);
 -- 14. question_grids;
 \qecho '14. question_grids';
 INSERT INTO question_grids (label, literal, instruction_id, horizontal_code_list_id, vertical_code_list_id, created_at, updated_at, instrument_id, question_type)
-(select a.Label, 
-        a.Literal,   
-        b.id, 
+(select a.Label,
+        a.Literal,
+        b.id,
         h.id,
         v.id,
         current_timestamp,
@@ -375,7 +375,7 @@ left join code_lists v on a.vertical_codelist_name = v.label
 cross join temp_sequence temp
 where c.prefix = temp.Label
 and temp.Parent_name is Null
-and h.id is not null 
+and h.id is not null
 and v.id is not null);
 
 SELECT pg_sleep(2);
@@ -384,12 +384,25 @@ SELECT pg_sleep(2);
 -- 15. cc_questions;
 \qecho '15. cc_questions';
 INSERT INTO response_units (Label, created_at, updated_at, instrument_id)
+(select distinct
+       a.Interviewee,
+       current_timestamp,
+       current_timestamp,
+       c.id
+from (select distinct Interviewee from temp_question_item
+      UNION
+      select distinct Interviewee from temp_question_grid) a
+cross join instruments c
+cross join temp_sequence temp
+where c.prefix = temp.Label
+and temp.Parent_name is Null);
+/*
 (SELECT 'Cohort/sample member', current_timestamp, current_timestamp, id
 FROM instruments
 cross join temp_sequence temp
 where instruments.prefix = temp.Label
 and temp.Parent_name is Null);
-
+*/
 SELECT pg_sleep(2);
 
 
@@ -408,7 +421,7 @@ INSERT INTO cc_questions (instrument_id, question_id, question_type, response_un
 from temp_question_item a
 cross join instruments c
 left join question_items b on a.Label = b.Label and b.instrument_id = c.id
-left join response_units d on c.id = d.instrument_id 
+left join response_units d on c.id = d.instrument_id and d.Label = a.Interviewee
 join cc_sequences f on a.Parent_Name = f.Label and f.instrument_id = c.id
 cross join temp_sequence temp
 where c.prefix = temp.Label
@@ -428,7 +441,7 @@ select c.id,
 from temp_question_item a
 cross join instruments c
 left join question_items b on a.Label = b.Label and b.instrument_id = c.id
-left join response_units d on c.id = d.instrument_id
+left join response_units d on c.id = d.instrument_id and d.Label = a.Interviewee
 join cc_conditions g on a.Parent_Name = g.Label and g.instrument_id = c.id
 cross join temp_sequence temp
 where c.prefix = temp.Label
@@ -448,7 +461,7 @@ select c.id,
 from temp_question_item a
 cross join instruments c
 left join question_items b on a.Label = b.Label and b.instrument_id = c.id
-left join response_units d on c.id = d.instrument_id 
+left join response_units d on c.id = d.instrument_id and d.Label = a.Interviewee
 join cc_loops h on a.Parent_Name = h.Label and h.instrument_id = c.id
 cross join temp_sequence temp
 where c.prefix = temp.Label
@@ -472,7 +485,7 @@ a.branch
 from temp_question_grid a
 cross join instruments c
 left join question_grids b on a.label = b.label and b.instrument_id = c.id
-left join response_units d on c.id = d.instrument_id and d.instrument_id = c.id
+left join response_units d on c.id = d.instrument_id and d.Label = a.Interviewee
 join cc_sequences f on a.Parent_Name = f.label and f.instrument_id = c.id
 cross join temp_sequence temp
 where c.prefix = temp.Label
@@ -493,7 +506,7 @@ a.branch
 from temp_question_grid a
 cross join instruments c
 left join question_grids b on a.label = b.label and b.instrument_id = c.id
-left join response_units d on c.id = d.instrument_id 
+left join response_units d on c.id = d.instrument_id and d.Label = a.Interviewee
 join cc_conditions g on a.Parent_Name = g.label and g.instrument_id = c.id
 cross join temp_sequence temp
 where c.prefix = temp.Label
@@ -514,7 +527,7 @@ a.branch
 from temp_question_grid a
 cross join instruments c
 left join question_grids b on a.label = b.label and b.instrument_id = c.id
-left join response_units d on c.id = d.instrument_id 
+left join response_units d on c.id = d.instrument_id and d.Label = a.Interviewee
 join cc_loops h on a.Parent_Name = h.label and h.instrument_id = c.id
 cross join temp_sequence temp
 where c.prefix = temp.Label
@@ -584,28 +597,28 @@ and temp.Parent_name is Null);
 -- 17. cc_statements;
 \qecho '17. cc_statements';
 INSERT INTO cc_statements (label, literal, position, branch, parent_id, parent_type, created_at, updated_at, instrument_id)
-(select distinct a.Label, 
+(select distinct a.Label,
                  a.Literal,
                  a.Position,
                  a.Branch,
-                 d.id, 
-                 a.Parent_Type, 
+                 d.id,
+                 a.Parent_Type,
                  current_timestamp,
                  current_timestamp,
                  c.id
 from temp_statement a
 cross join instruments c
-join cc_sequences d on a.Parent_Name = d.Label and d.instrument_id = c.id 
+join cc_sequences d on a.Parent_Name = d.Label and d.instrument_id = c.id
 cross join temp_sequence temp
 where c.prefix = temp.Label
 and temp.Parent_name is Null
 union
-select distinct a.Label, 
+select distinct a.Label,
                  a.Literal,
                  a.Position,
                  a.Branch,
-                 g.id, 
-                 a.Parent_Type, 
+                 g.id,
+                 a.Parent_Type,
                  current_timestamp,
                  current_timestamp,
                  c.id
@@ -622,10 +635,10 @@ SELECT pg_sleep(2);
 -- 18. update parent_id for cc_loops, cc_conditions;
 \qecho '18. update parent_id for cc_loops, cc_conditions';
 with t as (
-    select old.id as row_id, 
-           COALESCE(s.id, c.id, l.id) as parent_id, 
-           a.Parent_Type as parent_type, 
-           a.Position as position, 
+    select old.id as row_id,
+           COALESCE(s.id, c.id, l.id) as parent_id,
+           a.Parent_Type as parent_type,
+           a.Position as position,
            current_timestamp as updated_at
     from cc_loops old
     join temp_loop a on a.Label = old.Label
@@ -642,15 +655,15 @@ set parent_id = t.parent_id,
     parent_type = t.parent_type,
     position = t.position,
     updated_at = t.updated_at
-from t 
+from t
 where id = t.row_id;
 
 
 with t as (
-    select old.id as row_id, 
-           COALESCE(s.id, c.id, l.id) as parent_id, 
-           a.parent_type as parent_type, 
-           a.position as position, 
+    select old.id as row_id,
+           COALESCE(s.id, c.id, l.id) as parent_id,
+           a.parent_type as parent_type,
+           a.position as position,
            current_timestamp as updated_at
     from cc_conditions old
     join temp_condition a on a.Label = old.Label
@@ -667,7 +680,7 @@ set parent_id = t.parent_id,
     parent_type = t.parent_type,
     position = t.position,
     updated_at = t.updated_at
-from t 
+from t
 where id = t.row_id;
 
 
