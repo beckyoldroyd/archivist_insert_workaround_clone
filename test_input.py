@@ -53,7 +53,11 @@ def test_unique_label():
         if not f.stem == "codelist":
             print(f)
             df_input = pd.read_csv(f, sep=None)
-            assert df_input["Label"].nunique() == len(df_input["Label"])
+            if f.stem == "question_item":
+                df = df_input.loc[(df_input.rd_order == 1), :]
+            else:
+                df = df_input
+            assert df["Label"].nunique() == len(df["Label"])
 
 
 def test_special_characters():
