@@ -41,6 +41,7 @@ CREATE TABLE temp_question_item (
   Position int,
   min_responses int,
   max_responses int,
+  rd_order int,
   Interviewee varchar
 );
 \COPY temp_question_item FROM 'archivist_tables_clean/question_item.csv' DELIMITER E'\t' CSV HEADER;

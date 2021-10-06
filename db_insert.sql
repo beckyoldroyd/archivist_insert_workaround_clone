@@ -349,7 +349,8 @@ from temp_question_item a
 cross join instruments c
 left join instructions b on a.instructions = b.text and b.instrument_id = c.id
 cross join temp_sequence temp
-where c.prefix = temp.Label
+where a.rd_order = 1
+and c.prefix = temp.Label
 and temp.Parent_name is Null);
 
 SELECT pg_sleep(2);
@@ -395,14 +396,20 @@ from (select distinct Interviewee from temp_question_item
 cross join instruments c
 cross join temp_sequence temp
 where c.prefix = temp.Label
-and temp.Parent_name is Null);
-/*
-(SELECT 'Cohort/sample member', current_timestamp, current_timestamp, id
-FROM instruments
+and temp.Parent_name is Null);select a.id,
+        current_timestamp,
+        current_timestamp,
+        'ResponseDomainCode',
+        b.id,
+        c.min_responses,
+        c.max_responses
+from code_lists a
+join temp_question_item c on a.Label = c.Response
+cross join instruments b
 cross join temp_sequence temp
-where instruments.prefix = temp.Label
+where b.prefix = temp.Label
 and temp.Parent_name is Null);
-*/
+
 SELECT pg_sleep(2);
 
 
@@ -541,7 +548,7 @@ SELECT pg_sleep(2);
 \qecho '16. rds_qs';
 INSERT INTO rds_qs (instrument_id, question_id, question_type, code_id, response_domain_id, response_domain_type, created_at, updated_at, rd_order)
 (
-select ccq.instrument_id, ccq.question_id, ccq.question_type, f.id, b.id, b.response_domain_type, current_timestamp, current_timestamp, 1
+select ccq.instrument_id, ccq.question_id, ccq.question_type, f.id, b.id, b.response_domain_type, current_timestamp, current_timestamp, a.rd_order
 from temp_question_item a
 cross join instruments
 join cc_questions ccq on replace(a.Label, 'qi_', 'qc_') = ccq.Label and ccq.instrument_id = instruments.id
@@ -551,7 +558,7 @@ cross join temp_sequence temp
 where instruments.prefix = temp.Label
 and temp.Parent_name is Null
 union
-select ccq.instrument_id, ccq.question_id, ccq.question_type, null, c.id, c.response_domain_type, current_timestamp, current_timestamp, 1
+select ccq.instrument_id, ccq.question_id, ccq.question_type, null, c.id, c.response_domain_type, current_timestamp, current_timestamp, a.rd_order
 from temp_question_item a
 cross join instruments
 join cc_questions ccq on replace(a.Label, 'qi_', 'qc_') = ccq.Label and ccq.instrument_id = instruments.id
@@ -560,7 +567,7 @@ cross join temp_sequence temp
 where instruments.prefix = temp.Label
 and temp.Parent_name is Null
 union
-select ccq.instrument_id, ccq.question_id, ccq.question_type, null, d.id, d.response_domain_type, current_timestamp, current_timestamp, 1
+select ccq.instrument_id, ccq.question_id, ccq.question_type, null, d.id, d.response_domain_type, current_timestamp, current_timestamp, a.rd_order
 from temp_question_item a
 cross join instruments
 join cc_questions ccq on replace(a.Label, 'qi_', 'qc_') = ccq.Label and ccq.instrument_id = instruments.id
@@ -569,7 +576,7 @@ cross join temp_sequence temp
 where instruments.prefix = temp.Label
 and temp.Parent_name is Null
 union
-select ccq.instrument_id, ccq.question_id, ccq.question_type, null, e.id, e.response_domain_type, current_timestamp, current_timestamp, 1
+select ccq.instrument_id, ccq.question_id, ccq.question_type, null, e.id, e.response_domain_type, current_timestamp, current_timestamp, a.rd_order
 from temp_question_item a
 cross join instruments
 join cc_questions ccq on replace(a.Label, 'qi_', 'qc_') = ccq.Label and ccq.instrument_id = instruments.id

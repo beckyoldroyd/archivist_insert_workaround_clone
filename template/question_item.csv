@@ -1,4 +1,5 @@
-Label;Literal;Instructions;Response;Parent_Type;Parent_Name;Branch;Position;min_responses;max_responses;Interviewee
-qi_Smoker;Have you ever been a smoker?;Please tick one box;cs_Yes_No;CcLoop;l_qSmoker;;1;1;1;Cohort/sample member
-qi_Number;How many cigarettes a day?;;How many I;CcCondition;c_qSmoker;0;1;;;Cohort/sample member
-qi_Duration;How long have you been smoking?;;Months Years;CcCondition;c_qSmoker;0;2;;;Other
+Label;Literal;Instructions;Response;Parent_Type;Parent_Name;Branch;Position;min_responses;max_responses;rd_order;Interviewee
+qi_Smoker;Have you ever been a smoker?;Please tick one box;Generic text;CcLoop;l_qSmoker;;1;1;1;1;Cohort/sample member
+qi_Smoker;Have you ever been a smoker?;Please tick one box;cs_Yes_No;CcLoop;l_qSmoker;;1;1;1;2;Cohort/sample member
+qi_Number;How many cigarettes a day?;;How many I;CcCondition;c_qSmoker;0;1;;;1;Cohort/sample member
+qi_Duration;How long have you been smoking?;;Months Years;CcCondition;c_qSmoker;0;2;;;1;Other
