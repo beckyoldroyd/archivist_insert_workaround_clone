@@ -396,18 +396,6 @@ from (select distinct Interviewee from temp_question_item
 cross join instruments c
 cross join temp_sequence temp
 where c.prefix = temp.Label
-and temp.Parent_name is Null);select a.id,
-        current_timestamp,
-        current_timestamp,
-        'ResponseDomainCode',
-        b.id,
-        c.min_responses,
-        c.max_responses
-from code_lists a
-join temp_question_item c on a.Label = c.Response
-cross join instruments b
-cross join temp_sequence temp
-where b.prefix = temp.Label
 and temp.Parent_name is Null);
 
 SELECT pg_sleep(2);
