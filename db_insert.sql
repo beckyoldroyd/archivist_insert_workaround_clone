@@ -17,7 +17,31 @@ INSERT INTO instruments (agency, version, prefix, Label, study, created_at, upda
 from temp_sequence a
 where a.Parent_Name is Null);
 
--- 2. cc_sequences;
+
+-- 2. cc_loops;
+\qecho '11. cc_loops';
+INSERT INTO cc_loops (Label, start_val, end_val, loop_while, loop_var, parent_type, branch, position, created_at, updated_at, instrument_id)
+(select a.Label,
+        a.Start_Value,
+        a.End_Value,
+        a.Loop_While,
+        a.Variable,
+        a.Parent_type,
+        a.Branch,
+        a.Position,
+        current_timestamp,
+        current_timestamp,
+        b.id
+from temp_loop a
+cross join instruments b
+cross join temp_sequence temp
+where b.prefix = temp.Label
+and temp.Parent_name is Null);
+
+SELECT pg_sleep(2);
+
+
+-- 3. cc_sequences;
 \qecho '2. cc_sequences';
 INSERT INTO cc_sequences (instrument_id, created_at, updated_at)
 (select id,
@@ -52,7 +76,7 @@ INSERT INTO cc_sequences (instrument_id, created_at, updated_at, Label, parent_i
         current_timestamp,
         a.Label,
         b.id,
-        'CcSequence',
+        a.Parent_type,
         a.position,
         0
 from temp_sequence a
@@ -70,7 +94,7 @@ INSERT INTO cc_sequences (instrument_id, created_at, updated_at, Label, parent_i
         current_timestamp,
         a.Label,
         b.id,
-        'CcSequence',
+        a.Parent_type,
         a.position,
         0
 from temp_sequence a
@@ -80,10 +104,27 @@ where b.Label= a.Parent_name
 and temp.Parent_name is Null
 and a.Parent_Name != temp.Label );
 
+
+INSERT INTO cc_sequences (instrument_id, created_at, updated_at, Label, parent_id, parent_type, position, branch)
+(select b.instrument_id,
+        current_timestamp,
+        current_timestamp,
+        a.Label,
+        b.id,
+        a.Parent_type,
+        a.position,
+        0
+from temp_sequence a
+cross join cc_loops b
+cross join temp_sequence temp
+where b.Label= a.Parent_name
+and temp.Parent_name is Null
+and a.Parent_Name != temp.Label );
+
 SELECT pg_sleep(2);
 
 
--- 3. response_domain_numerics;
+-- 4. response_domain_numerics;
 \qecho '3. response_domain_numerics';
 INSERT INTO response_domain_numerics (numeric_type, Label, min, max, created_at, updated_at, instrument_id, response_domain_type)
 (select a.Type2,
@@ -104,7 +145,7 @@ and a.type = 'Numeric');
 SELECT pg_sleep(2);
 
 
--- 4. response_domain_texts;
+-- 5. response_domain_texts;
 \qecho '4. response_domain_texts';
 INSERT INTO response_domain_texts (Label, maxlen, created_at, updated_at, instrument_id, response_domain_type)
 (select a.Label,
@@ -123,7 +164,7 @@ and a.type = 'Text');
 SELECT pg_sleep(2);
 
 
--- 5.response_domain_datetimes;
+-- 6. response_domain_datetimes;
 \qecho '5. response_domain_datetimes';
 INSERT INTO response_domain_datetimes (datetime_type, Label, Format, created_at, updated_at, instrument_id, response_domain_type)
 (select a.type2,
@@ -143,7 +184,7 @@ and a.type = 'Date');
 SELECT pg_sleep(2);
 
 
--- 6. code_lists;
+-- 7. code_lists;
 \qecho '6. code_lists';
 INSERT INTO code_lists (Label, created_at, updated_at, instrument_id)
 (select distinct a.Label,
@@ -159,7 +200,7 @@ and temp.Parent_name is Null);
 SELECT pg_sleep(2);
 
 
--- 7. response_domain_codes;
+-- 8. response_domain_codes;
 \qecho '7. response_domain_codes';
 INSERT INTO response_domain_codes (code_list_id, created_at, updated_at, response_domain_type, instrument_id, min_responses, max_responses)
 (select a.id,
@@ -238,7 +279,7 @@ and a.category is not null);
 SELECT pg_sleep(2);
 
 
--- 9. codes;
+-- 10. codes;
 \qecho '9. codes';
 INSERT INTO codes (value, "order", code_list_id, category_id, created_at, updated_at, instrument_id)
 (select a.Code_Value as value,
@@ -260,7 +301,7 @@ where c.id is not null);
 SELECT pg_sleep(2);
 
 
--- 10. cc_conditions;
+-- 11. cc_conditions;
 \qecho '10. cc_conditions';
 INSERT INTO cc_conditions (instrument_id, Label, literal, logic, parent_id, parent_type, position, branch, created_at, updated_at)
 (select b.id,
@@ -276,29 +317,6 @@ INSERT INTO cc_conditions (instrument_id, Label, literal, logic, parent_id, pare
 from temp_condition a
 cross join instruments b
 left join cc_sequences d on a.Parent_name = d.Label and d.instrument_id = b.id
-cross join temp_sequence temp
-where b.prefix = temp.Label
-and temp.Parent_name is Null);
-
-SELECT pg_sleep(2);
-
-
--- 11. cc_loops;
-\qecho '11. cc_loops';
-INSERT INTO cc_loops (Label, start_val, end_val, loop_while, loop_var, parent_type, branch, position, created_at, updated_at, instrument_id)
-(select a.Label,
-        a.Start_Value,
-        a.End_Value,
-        a.Loop_While,
-        a.Variable,
-        a.Parent_type,
-        a.Branch,
-        a.Position,
-        current_timestamp,
-        current_timestamp,
-        b.id
-from temp_loop a
-cross join instruments b
 cross join temp_sequence temp
 where b.prefix = temp.Label
 and temp.Parent_name is Null);
